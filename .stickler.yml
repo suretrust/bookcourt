@@ -1,10 +1,3 @@
 linters:
-  rubocop:
-    fixer: true
-  csslint: {  }
-files:
-  ignore:
-    - 'bower_components/*'
-    - 'node_modules/*'
-fixers:
-  enable: true
+  eslint:
+    config: './.eslintrc.json'
