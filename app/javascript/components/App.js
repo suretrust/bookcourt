@@ -1,10 +1,10 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 // import '../assets/styles/css/App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './Login';
 import CourtTypes from './CourtTypes';
 import CourtsList from '../containers/CourtsList';
-import { Provider } from 'react-redux';
 import Home from './Home';
 import SignUp from './SignUp';
 import store from '../store/store';
