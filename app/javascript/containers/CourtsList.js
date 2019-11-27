@@ -16,7 +16,6 @@ const CourtsList = () => {
     await axios
       .get('api/v1/courts')
       .then(res => {
-        console.log(res.data);
         setCourts(res.data);
       })
       .catch(err => {
