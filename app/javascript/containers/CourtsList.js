@@ -11,6 +11,13 @@ const mapStateToProps = state => ({
 
 const CourtsList = ({ courts }) => {
   console.log(store.getState());
+  const getCourts = async () => {
+    const data = await fetch('api/v1/courts').then(r => r.json());
+    console.log(data);
+    return data;
+  };
+
+  getCourts();
 
   return (
     <section>
