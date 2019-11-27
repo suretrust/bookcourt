@@ -26,6 +26,7 @@
         "react/jsx-filename-extension": "off",
         "react/no-unescaped-entities": "off",
         "import/no-unresolved": "off",
-        "react/jsx-one-expression-per-line": "off"
+        "react/jsx-one-expression-per-line": "off",
+        "no-shadow": "off"
     }
 }
