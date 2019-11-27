@@ -6,7 +6,9 @@ const CourtTypes = () => {
   return (
     <section>
       {COURT_TYPES.map(courtType => (
-        <Link to="/court-types">{courtType}</Link>
+        <Link key={courtType} to="/court-types">
+          {courtType}
+        </Link>
       ))}
     </section>
   );
