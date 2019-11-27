@@ -3,4 +3,4 @@ linters:
     config: './.eslintrc.json'
 files:
   ignore:
-    - 'app/javascript/packs/'
+    - 'app/javascript/packs/*'
