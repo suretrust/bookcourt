@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Court from '../components/Court';
 import CourtTypes from '../components/CourtTypes';
+import store from '../store/store';
 
 const mapStateToProps = state => ({
   courts: state.courts,
 });
 
 const CourtsList = ({ courts }) => {
+  console.log(store.getState());
+
   return (
     <section>
       <input type="text" placeholder="Search for courts" />

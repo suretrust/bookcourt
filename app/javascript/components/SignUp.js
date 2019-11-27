@@ -1,23 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import addUser from '../actions';
 
-const SignUp = () => {
+const mapDispatchToProps = dispatch => ({
+  addUser: email => dispatch(addUser(email)),
+});
+
+const SignUp = ({ addUser }) => {
+  const [email, setEmail] = useState('');
+
+  const handleEmailChange = e => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    addUser(email);
+  };
+
   return (
     <form>
       <div>
         <h1>WELCOME</h1>
-        <p>Sign up to continue</p>
+        <p>Enter your email to continue</p>
       </div>
-      <input type="email" placeholder="Enter your email address" />
-      <input type="password" placeholder="Enter your password" />
-      <input type="password" placeholder="Confirm password" />
+      <input
+        type="email"
+        placeholder="Enter your email address"
+        value={email}
+        onChange={handleEmailChange}
+      />
       <div>
-        <Link to="/find-court">Sign Up</Link>
-        <span>Already have an account?</span>
-        <Link to="/login">Sign In</Link>
+        <Link to="/find-court" onClick={handleSubmit}>
+          Continue
+        </Link>
       </div>
     </form>
   );
 };
 
-export default SignUp;
+SignUp.propTypes = {
+  addUser: PropTypes.func.isRequired,
+};
+
+export default connect(null, mapDispatchToProps)(SignUp);
