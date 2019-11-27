@@ -5,9 +5,9 @@ const Court = ({ court }) => {
   return (
     <section>
       <div>
-        <div>Thumbnail of court</div>
+        <div>{court.image}</div>
         <div>Share</div>
-        <div>{court.courtType}</div>
+        <div>{court.court_type}</div>
         <div>{court.name}</div>
         <div>{court.location}</div>
         <div>{`₦ ${court.cost}`}</div>
@@ -23,7 +23,8 @@ Court.propTypes = {
   court: PropTypes.shape({
     name: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
-    courtType: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    court_type: PropTypes.string.isRequired,
     cost: PropTypes.number.isRequired,
   }).isRequired,
 };
