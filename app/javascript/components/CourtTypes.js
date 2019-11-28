@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import COURT_TYPES from '../utilities/index';
+import { COURT_TYPES } from '../utilities/index';
 
 const CourtTypes = () => {
   return (
