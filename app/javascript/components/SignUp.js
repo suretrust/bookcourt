@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Axios from 'axios';
 import PropTypes from 'prop-types';
 import addUser from '../actions';
+import { emailIsValid } from '../utilities';
 
 const csrfToken = document.querySelector('[name=csrf-token]').content;
 Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
@@ -14,14 +15,25 @@ const mapDispatchToProps = dispatch => ({
 
 const SignUp = ({ addUser }) => {
   const [email, setEmail] = useState('');
+  const [errMsg, setErrMsg] = useState('');
+  const [toggle, setToggle] = useState({ display: 'none' });
 
   const handleEmailChange = e => {
-    setEmail(e.target.value);
+    const { value } = e.target;
+    if (emailIsValid(value)) {
+      setErrMsg('Valid email! Click on continue once done!');
+      setToggle({ display: 'block' });
+      setColor('#009688');
+    } else {
+      setErrMsg('Please enter a valid email.');
+      setToggle({ display: 'none' });
+      setColor('#ff0000');
+    }
+    setEmail(value);
   };
 
   const addUserToDatabase = async data => {
-    await Axios.post('/api/v1/users', { email: data
-     })
+    await Axios.post('/api/v1/users', { email: data })
       .then(res => {
         console.log(res);
       })
@@ -31,7 +43,7 @@ const SignUp = ({ addUser }) => {
   };
 
   const handleSubmit = () => {
-    console.log(email);
+    setErrMsg('');
     addUser(email);
     addUserToDatabase(email);
   };
@@ -42,6 +54,7 @@ const SignUp = ({ addUser }) => {
         <h1>WELCOME</h1>
         <p>Enter your email to continue</p>
       </div>
+      <p>{errMsg}</p>
       <input
         type="email"
         placeholder="Enter your email address"
@@ -49,7 +62,7 @@ const SignUp = ({ addUser }) => {
         onChange={handleEmailChange}
       />
       <div>
-        <Link to="/find-court" onClick={handleSubmit}>
+        <Link to="/find-court" onClick={handleSubmit} style={toggle}>
           Continue
         </Link>
       </div>
