@@ -8,6 +8,7 @@ import CourtTypes from './CourtTypes';
 import CourtsList from '../containers/CourtsList';
 import Home from './Home';
 import SignUp from './SignUp';
+import NotFound from './NotFound';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/sign-up" component={SignUp} />
             <Route path="/:court-type/:courts" component={CourtTypes} />
             <Route path="/find-court" component={CourtsList} />
+            <Route component={NotFound} />
           </Switch>
         </Router>
       </div>
