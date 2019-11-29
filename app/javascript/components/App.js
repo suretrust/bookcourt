@@ -19,8 +19,9 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/sign-up" component={SignUp} />
-            <Route path="/:court-type/:courts" component={CourtTypes} />
-            <Route path="/find-court" component={CourtsList} />
+            <Route path="/court-types" component={CourtTypes} />
+            {/* <Route path="/find-court" component={CourtsList} />
+            <Route path="/find-court" component={CourtsList} /> */}
             <Route component={NotFound} />
           </Switch>
         </Router>
