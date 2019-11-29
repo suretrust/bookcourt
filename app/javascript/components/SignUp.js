@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Axios from 'axios';
 import PropTypes from 'prop-types';
@@ -13,60 +13,74 @@ const mapDispatchToProps = dispatch => ({
   addUser: email => dispatch(addUser(email)),
 });
 
-const SignUp = ({ addUser }) => {
+const SignUp = () => {
   const [email, setEmail] = useState('');
   const [errMsg, setErrMsg] = useState('');
+  const [userId, setUserID] = useState(null);
   const [toggle, setToggle] = useState({ display: 'none' });
 
   const handleEmailChange = e => {
     const { value } = e.target;
     if (emailIsValid(value)) {
-      setErrMsg('Valid email! Click on continue once done!');
+      setErrMsg('');
       setToggle({ display: 'block' });
-      setColor('#009688');
     } else {
       setErrMsg('Please enter a valid email.');
       setToggle({ display: 'none' });
-      setColor('#ff0000');
     }
     setEmail(value);
   };
 
-  const addUserToDatabase = async data => {
-    await Axios.post('/api/v1/users', { email: data })
+  const userIsInDatabase = async data => {
+    await Axios.get('/api/v1/users')
       .then(res => {
-        console.log(res);
+        console.log(res.data);
       })
       .catch(err => {
         console.log(err);
       });
   };
 
-  const handleSubmit = () => {
+  const addUserToDatabase = async data => {
+    await Axios.post('/api/v1/users', { email: data })
+      .then(res => {
+        const userID = res.data.id;
+        setUserID(userID);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
     setErrMsg('');
+    setToggle({ display: 'none' });
     addUser(email);
+    userIsInDatabase(email);
     addUserToDatabase(email);
+    setEmail('');
   };
 
   return (
-    <form>
+    <section>
       <div>
         <h1>WELCOME</h1>
-        <p>Enter your email to continue</p>
+        <p>Enter your email to Sign Up</p>
       </div>
       <p>{errMsg}</p>
-      <input
-        type="email"
-        placeholder="Enter your email address"
-        value={email}
-        onChange={handleEmailChange}
-      />
-      <div>
-        <Link to="/find-court" onClick={handleSubmit} style={toggle}>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Email address"
+          value={email}
+          onChange={handleEmailChange}
+        />
+        <button type="submit" style={toggle}>
           Continue
-        </Link>
-      </div>
-    </form>
+        </button>
+      </form>
+    </section>
   );
 };
 
