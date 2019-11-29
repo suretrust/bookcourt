@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Axios from 'axios';
@@ -111,5 +112,9 @@ class SignUp extends React.Component {
     );
   }
 }
+
+SignUp.propTypes = {
+  addUser: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignUp));
