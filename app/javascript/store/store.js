@@ -3,12 +3,21 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from '../reducers';
 
-const initialState = {};
+const initialState = {
+  courts: [],
+  user: {},
+  carpetCourts: [],
+};
+
+const composeEnhancers = composeWithDevTools({
+  trace: true,
+  traceLimit: 25,
+});
 
 const store = createStore(
   reducer,
   initialState,
-  composeWithDevTools(applyMiddleware(thunk))
+  composeEnhancers(applyMiddleware(thunk))
 );
 
 export default store;
