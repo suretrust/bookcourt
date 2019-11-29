@@ -3,11 +3,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from '../reducers';
 
-const initialState = {
-  courts: [],
-  user: {},
-  carpetCourts: [],
-};
+const initialState = {};
 
 const composeEnhancers = composeWithDevTools({
   trace: true,

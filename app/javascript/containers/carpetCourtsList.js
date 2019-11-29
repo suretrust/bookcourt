@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Court from './Court';
+import Court from '../components/Court';
 import { setCarpetCourts } from '../actions';
 
 const mapStateToProps = state => ({

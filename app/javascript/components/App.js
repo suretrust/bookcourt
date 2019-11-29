@@ -6,10 +6,10 @@ import Login from './Login';
 import CourtTypes from './CourtTypes';
 import CourtsList from '../containers/CourtsList';
 import Home from './Home';
-import SignUp from './SignUp';
+import SignUp from '../containers/SignUp';
 import NotFound from './NotFound';
-import carpetCourtsList from '../components/carpetCourtsList';
-import clayCourtsList from '../components/clayCourtsList';
+import carpetCourtsList from '../containers/carpetCourtsList';
+import clayCourtsList from '../containers/clayCourtsList';
 
 function App() {
   return (
