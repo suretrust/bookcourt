@@ -30,7 +30,6 @@ const CourtsList = () => {
   return (
     <section>
       <input type="text" placeholder="Search for courts" />
-      <h3>Filter by: </h3>
       <CourtTypes />
       <div>
         {error ? `${error}` : ''}
