@@ -3,9 +3,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from '../reducers';
 
-const initialState = {
-  courts: [],
-};
+const initialState = {};
 
 const store = createStore(
   reducer,

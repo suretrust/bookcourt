@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Axios from 'axios';
-import PropTypes from 'prop-types';
 import addUser from '../actions';
 import { emailIsValid } from '../utilities';
 
@@ -10,82 +10,107 @@ const csrfToken = document.querySelector('[name=csrf-token]').content;
 Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
 
 const mapDispatchToProps = dispatch => ({
-  addUser: email => dispatch(addUser(email)),
+  addUser: (email, id) => dispatch(addUser(email, id)),
 });
 
-const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [errMsg, setErrMsg] = useState('');
-  const [userId, setUserID] = useState(null);
-  const [toggle, setToggle] = useState({ display: 'none' });
+const mapStateToProps = state => ({
+  storeState: state,
+});
 
-  const handleEmailChange = e => {
+class SignUp extends React.Component {
+  state = {
+    email: '',
+    errMsg: '',
+    redirectTo: false,
+    toggle: { display: 'none' },
+  };
+
+  handleEmailChange = e => {
     const { value } = e.target;
     if (emailIsValid(value)) {
-      setErrMsg('');
-      setToggle({ display: 'block' });
+      this.setState({
+        errMsg: '',
+        toggle: { display: 'block' },
+      });
     } else {
-      setErrMsg('Please enter a valid email.');
-      setToggle({ display: 'none' });
+      this.setState({
+        errMsg: 'Please enter a valid email.',
+        toggle: { display: 'none' },
+      });
     }
-    setEmail(value);
+    this.setState({
+      email: value,
+    });
   };
 
-  const userIsInDatabase = async data => {
-    await Axios.get('/api/v1/users')
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  processUser = async email => {
+    const user = await Axios.get('/api/v1/users')
+      .then(res => res.data.find(user => user.email === email))
+      .catch(err => err);
+    return user;
   };
 
-  const addUserToDatabase = async data => {
-    await Axios.post('/api/v1/users', { email: data })
-      .then(res => {
-        const userID = res.data.id;
-        setUserID(userID);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  addUserToDatabase = async email => {
+    const id = await Axios.post('/api/v1/users', { email })
+      .then(res => res.data.id)
+      .catch(err => err);
+    return id;
   };
 
-  const handleSubmit = e => {
+  getUserID = async email => {
+    const user = await this.processUser(email);
+    if (user) return user.id;
+    return this.addUserToDatabase(email);
+  };
+
+  handleSubmit = async e => {
     e.preventDefault();
-    setErrMsg('');
-    setToggle({ display: 'none' });
-    addUser(email);
-    userIsInDatabase(email);
-    addUserToDatabase(email);
-    setEmail('');
+    const { email } = this.state;
+    const { addUser } = this.props;
+    
+    const id = await this.getUserID(email);
+
+    addUser(email, id);
+
+    this.setState({
+      errMsg: '',
+      toggle: { display: 'none' },
+      email: '',
+      redirectTo: true,
+    });
   };
 
-  return (
-    <section>
-      <div>
-        <h1>WELCOME</h1>
-        <p>Enter your email to Sign Up</p>
-      </div>
-      <p>{errMsg}</p>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email address"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <button type="submit" style={toggle}>
-          Continue
-        </button>
-      </form>
-    </section>
-  );
-};
+  render() {
+    const { handleEmailChange, handleSubmit } = this;
+    const { errMsg, email, toggle, redirectTo } = this.state;
 
-SignUp.propTypes = {
-  addUser: PropTypes.func.isRequired,
-};
+    return (
+      <section>
+        <div>
+          {redirectTo ? <Redirect to="/court-types" /> : null}
+          <h1>WELCOME</h1>
+          <p>Enter your email to Sign Up</p>
+        </div>
+        <form
+          onSubmit={
+            emailIsValid(email) ? handleSubmit : e => e.preventDefault()
+          }
+          noValidate
+        >
+          <input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={handleEmailChange}
+          />
+          <small>{errMsg}</small>
+          <button type="submit" style={toggle}>
+            Continue
+          </button>
+        </form>
+      </section>
+    );
+  }
+}
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignUp));

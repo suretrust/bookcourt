@@ -1,12 +1,12 @@
-const users = (state = [], action) => {
+const user = (state = [], action) => {
+  console.log(action);
   switch (action.type) {
     case 'ADD_USER':
-      return [...state, { email: action.email }];
+      return [...state, { email: action.email, id: action.id }];
 
     default:
-      break;
+      return state;
   }
-  return state;
 };
 
-export default users;
+export default user;
