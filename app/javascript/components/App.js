@@ -20,8 +20,8 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/sign-up" component={SignUp} />
             <Route path="/court-types" component={CourtTypes} />
-            {/* <Route path="/find-court" component={CourtsList} />
-            <Route path="/find-court" component={CourtsList} /> */}
+            <Route path="/fcourt-types/:type" component={CourtsList} />
+            {/* <Route path="/find-court" component={CourtsList} /> */}
             <Route component={NotFound} />
           </Switch>
         </Router>
