@@ -4,9 +4,8 @@ const courts = (state = [], action) => {
       return action.courts;
 
     default:
-      break;
+      return state;
   }
-  return state;
 };
 
 export default courts;

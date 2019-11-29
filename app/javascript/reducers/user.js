@@ -4,9 +4,8 @@ const user = (state = {}, action) => {
       return action.user;
 
     default:
-      break;
+      return state;
   }
-  return state;
 };
 
 export default user;
