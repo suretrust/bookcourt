@@ -15,10 +15,6 @@ const mapDispatchToProps = dispatch => ({
   setCourts: courts => dispatch(setCourts(courts)),
 });
 
-const mapStateToProps = state => ({
-  storeState: state,
-});
-
 class SignUp extends React.Component {
   state = {
     email: '',
@@ -83,6 +79,10 @@ class SignUp extends React.Component {
     const user = await this.getUserID(email);
     const courts = await this.getCourts();
 
+    const carpetCourts = courts.filter(
+      court => court.court_type === 'Carpet Courts'
+    );
+
     setCourts(courts);
     setUser(user);
 
@@ -131,4 +131,4 @@ SignUp.propTypes = {
   setUser: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignUp));
+export default connect(null, mapDispatchToProps)(withRouter(SignUp));
