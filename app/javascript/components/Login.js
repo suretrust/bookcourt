@@ -24,10 +24,10 @@ const Login = () => {
   const addUserToDatabase = async data => {
     await Axios.get('/api/v1/users', { email: data })
       .then(res => {
-        console.log(res);
+        return res;
       })
       .catch(err => {
-        console.log(err);
+        return err;
       });
   };
 

@@ -67,7 +67,6 @@ class SignUp extends React.Component {
     e.preventDefault();
     const { email } = this.state;
     const { addUser } = this.props;
-    
     const id = await this.getUserID(email);
 
     addUser(email, id);
