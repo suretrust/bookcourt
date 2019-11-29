@@ -1,7 +1,7 @@
-const user = (state = [], action) => {
+const user = (state = {}, action) => {
   switch (action.type) {
-    case 'ADD_USER':
-      return [...state, { email: action.email, id: action.id }];
+    case 'SET_USER':
+      return action.user;
 
     default:
       break;

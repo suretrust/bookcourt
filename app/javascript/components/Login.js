@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
-import addUser from '../actions';
+import { setUser } from '../actions';
 import { emailIsValid } from '../utilities';
 
 const Login = () => {
@@ -33,7 +33,7 @@ const Login = () => {
 
   const handleSubmit = () => {
     setErrMsg('');
-    addUser(email);
+    setUser(email);
     addUserToDatabase(email);
   };
 

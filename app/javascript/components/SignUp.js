@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Axios from 'axios';
-import addUser from '../actions';
+import { setUser, setCourts } from '../actions';
 import { emailIsValid } from '../utilities';
 
 const csrfToken = document.querySelector('[name=csrf-token]').content;
 Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
 
 const mapDispatchToProps = dispatch => ({
-  addUser: (email, id) => dispatch(addUser(email, id)),
+  setUser: (email, id) => dispatch(setUser(email, id)),
+  setCourts: courts => dispatch(setCourts(courts)),
 });
 
 const mapStateToProps = state => ({
@@ -44,6 +45,17 @@ class SignUp extends React.Component {
     });
   };
 
+  getCourts = async () => {
+    const courts = await Axios.get('api/v1/courts')
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        return err;
+      });
+    return courts;
+  };
+
   processUser = async email => {
     const user = await Axios.get('/api/v1/users')
       .then(res => res.data.find(user => user.email === email))
@@ -53,24 +65,26 @@ class SignUp extends React.Component {
 
   addUserToDatabase = async email => {
     const id = await Axios.post('/api/v1/users', { email })
-      .then(res => res.data.id)
+      .then(res => res.data)
       .catch(err => err);
     return id;
   };
 
   getUserID = async email => {
     const user = await this.processUser(email);
-    if (user) return user.id;
+    if (user) return user;
     return this.addUserToDatabase(email);
   };
 
   handleSubmit = async e => {
     e.preventDefault();
     const { email } = this.state;
-    const { addUser } = this.props;
-    const id = await this.getUserID(email);
+    const { setUser, setCourts } = this.props;
+    const user = await this.getUserID(email);
+    const courts = await this.getCourts();
 
-    addUser(email, id);
+    setCourts(courts);
+    setUser(user);
 
     this.setState({
       errMsg: '',
@@ -114,7 +128,7 @@ class SignUp extends React.Component {
 }
 
 SignUp.propTypes = {
-  addUser: PropTypes.func.isRequired,
+  setUser: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignUp));
