@@ -4,7 +4,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Axios from 'axios';
-import { setUser, setCourts } from '../actions';
+import {
+  setUser,
+  setCourts,
+  setCarpetCourts,
+  setClayCourts,
+  setHardCourts,
+  setGrassCourts,
+  setIndoorCourts,
+} from '../actions';
 import { emailIsValid } from '../utilities';
 
 const csrfToken = document.querySelector('[name=csrf-token]').content;
@@ -13,6 +21,11 @@ Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
 const mapDispatchToProps = dispatch => ({
   setUser: (email, id) => dispatch(setUser(email, id)),
   setCourts: courts => dispatch(setCourts(courts)),
+  setCarpetCourts: carpetCourts => dispatch(setCarpetCourts(carpetCourts)),
+  setClayCourts: clayCourts => dispatch(setClayCourts(clayCourts)),
+  setHardCourts: hardCourts => dispatch(setHardCourts(hardCourts)),
+  setGrassCourts: grassCourts => dispatch(setGrassCourts(grassCourts)),
+  setIndoorCourts: indoorCourts => dispatch(setIndoorCourts(indoorCourts)),
 });
 
 class SignUp extends React.Component {
@@ -20,7 +33,7 @@ class SignUp extends React.Component {
     email: '',
     errMsg: '',
     redirectTo: false,
-    toggle: { display: 'none' },
+    disabled: true,
   };
 
   handleEmailChange = e => {
@@ -28,12 +41,12 @@ class SignUp extends React.Component {
     if (emailIsValid(value)) {
       this.setState({
         errMsg: '',
-        toggle: { display: 'block' },
+        disabled: false,
       });
     } else {
       this.setState({
         errMsg: 'Please enter a valid email.',
-        toggle: { display: 'none' },
+        disabled: true,
       });
     }
     this.setState({
@@ -75,20 +88,49 @@ class SignUp extends React.Component {
   handleSubmit = async e => {
     e.preventDefault();
     const { email } = this.state;
-    const { setUser, setCourts } = this.props;
-    const user = await this.getUserID(email);
+    const {
+      setUser,
+      setCourts,
+      setCarpetCourts,
+      setClayCourts,
+      setHardCourts,
+      setGrassCourts,
+      setIndoorCourts,
+    } = this.props;
+    const user = await this.getUserID(email.toLowerCase());
     const courts = await this.getCourts();
 
     const carpetCourts = courts.filter(
       court => court.court_type === 'Carpet Courts'
     );
 
+    const clayCourts = courts.filter(
+      court => court.court_type === 'Clay Courts'
+    );
+
+    const hardCourts = courts.filter(
+      court => court.court_type === 'Hard Courts'
+    );
+
+    const grassCourts = courts.filter(
+      court => court.court_type === 'Grass Courts'
+    );
+
+    const indoorCourts = courts.filter(
+      court => court.court_type === 'Indoor Courts'
+    );
+
     setCourts(courts);
+    setCarpetCourts(carpetCourts);
+    setClayCourts(clayCourts);
+    setHardCourts(hardCourts);
+    setGrassCourts(grassCourts);
+    setIndoorCourts(indoorCourts);
     setUser(user);
 
     this.setState({
       errMsg: '',
-      toggle: { display: 'none' },
+      disabled: true,
       email: '',
       redirectTo: true,
     });
@@ -96,7 +138,7 @@ class SignUp extends React.Component {
 
   render() {
     const { handleEmailChange, handleSubmit } = this;
-    const { errMsg, email, toggle, redirectTo } = this.state;
+    const { errMsg, email, redirectTo, disabled } = this.state;
 
     return (
       <section>
@@ -118,7 +160,7 @@ class SignUp extends React.Component {
             onChange={handleEmailChange}
           />
           <small>{errMsg}</small>
-          <button type="submit" style={toggle}>
+          <button type="submit" disabled={disabled}>
             Continue
           </button>
         </form>
@@ -128,7 +170,13 @@ class SignUp extends React.Component {
 }
 
 SignUp.propTypes = {
+  setCourts: PropTypes.func.isRequired,
   setUser: PropTypes.func.isRequired,
+  setCarpetCourts: PropTypes.func.isRequired,
+  setClayCourts: PropTypes.func.isRequired,
+  setHardCourts: PropTypes.func.isRequired,
+  setGrassCourts: PropTypes.func.isRequired,
+  setIndoorCourts: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(withRouter(SignUp));
