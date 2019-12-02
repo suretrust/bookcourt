@@ -5,14 +5,14 @@ const Court = ({ court }) => {
   return (
     <section>
       <div>
-        <div>{court.image}</div>
+        <img src={court.image} alt="court-img" />
         <div>Share</div>
         <div>{court.court_type}</div>
         <div>{court.name}</div>
         <div>{court.location}</div>
-        <div>{`₦ ${court.cost}`}</div>
+        <div>{`$${court.cost}`}</div>
         <button type="button">VIEW COURT DETAILS</button>
-        <button type="button">Call</button>
+        <a href={`tel:+${court.phone}`}>Call</a>
         <button type="button">Book</button>
       </div>
     </section>
@@ -26,6 +26,7 @@ Court.propTypes = {
     image: PropTypes.string.isRequired,
     court_type: PropTypes.string.isRequired,
     cost: PropTypes.number.isRequired,
+    phone: PropTypes.string.isRequired,
   }).isRequired,
 };
 
