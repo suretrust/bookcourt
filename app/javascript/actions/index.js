@@ -18,9 +18,9 @@ const setGrassCourts = grassCourts => ({
   grassCourts,
 });
 
-const setIndoorCourts = indoorCourtshardCourts => ({
+const setIndoorCourts = indoorCourts => ({
   type: 'SET_INDOOR_COURTS',
-  indoorCourtshardCourts,
+  indoorCourts,
 });
 
 const setClayCourts = clayCourts => ({
