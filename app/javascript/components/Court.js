@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Court = ({ court }) => {
@@ -11,9 +12,9 @@ const Court = ({ court }) => {
         <div>{court.name}</div>
         <div>{court.location}</div>
         <div>{`$${court.cost}`}</div>
-        <button type="button">VIEW COURT DETAILS</button>
+        <Link to={`/courts/${court.id}`}>VIEW COURT DETAILS</Link>
         <a href={`tel:+${court.phone}`}>Call</a>
-        <button type="button">Book</button>
+        <Link to={`/book-court/${court.id}`}>Book Court</Link>
       </div>
     </section>
   );
@@ -27,6 +28,7 @@ Court.propTypes = {
     court_type: PropTypes.string.isRequired,
     cost: PropTypes.number.isRequired,
     phone: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   }).isRequired,
 };
 
