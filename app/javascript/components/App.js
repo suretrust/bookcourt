@@ -8,8 +8,7 @@ import CourtsList from '../containers/CourtsList';
 import Home from './Home';
 import SignUp from '../containers/SignUp';
 import NotFound from './NotFound';
-import carpetCourtsList from '../containers/carpetCourtsList';
-import clayCourtsList from '../containers/clayCourtsList';
+import Court from './Court';
 
 function App() {
   return (
@@ -21,13 +20,12 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/sign-up" component={SignUp} />
             <Route path="/court-types" exact component={CourtTypes} />
-            <Route path="/court-types/all-courts" component={CourtsList} />
+            <Route path="/court-types/:type" component={CourtsList} />
             <Route
-              path="/court-types/carpet-courts"
-              component={carpetCourtsList}
+              path="/court-types/:courts-type/:id"
+              exact
+              component={Court}
             />
-            <Route path="/court-types/clay-courts" component={clayCourtsList} />
-            <Route path="/courts-list" exact component={CourtsList} />
             <Route component={NotFound} />
           </Switch>
         </Router>
