@@ -6,7 +6,8 @@ import urlCase from '../utilities/urlCase';
 const CourtTypes = () => {
   return (
     <section>
-      <input type="text" placeholder="Search for a court" />
+      <input type="text" placeholder="Search for a court by name" />
+      <button type="submit">Search</button>
       <h2>Choose your prefered court type</h2>
       {COURT_TYPES.map(courtType => (
         <Link key={courtType} to={`/court-types/${urlCase(courtType)}`}>

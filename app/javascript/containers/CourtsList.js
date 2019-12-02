@@ -48,7 +48,8 @@ const CourtsList = ({
 
   return (
     <section>
-      <input type="text" placeholder="Search for courts" />
+      <input type="text" placeholder="Search for a court by name" />
+      <button type="submit">Search</button>
       <div>
         {courtFilter().map(court => (
           <Court key={court.id} court={court} />
@@ -60,10 +61,10 @@ const CourtsList = ({
 
 CourtsList.propTypes = {
   match: PropTypes.shape({
-    params: PropTypes.objectOf({
-      type: PropTypes.string.isRequired,
-    }),
-  }),
+    params: PropTypes.shape({
+      type: PropTypes.node,
+    }).isRequired,
+  }).isRequired,
   courts: PropTypes.arrayOf(PropTypes.object).isRequired,
   clayCourts: PropTypes.arrayOf(PropTypes.object).isRequired,
   carpetCourts: PropTypes.arrayOf(PropTypes.object).isRequired,
