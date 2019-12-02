@@ -30,6 +30,7 @@
         "react/jsx-one-expression-per-line": "off",
         "no-shadow": "off",
         "react/state-in-constructor": "off",
-        "react/require-default-props": "off"
+        "react/require-default-props": "off",
+        "jsx-a11y/no-autofocus": "off"
     }
 }
