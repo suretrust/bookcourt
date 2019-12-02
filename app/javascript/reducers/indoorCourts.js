@@ -1,6 +1,6 @@
 const indoorCourts = (state = [], action) => {
   switch (action.type) {
-    case 'SET__CLAY_COURTS':
+    case 'SET_INDOOR_COURTS':
       return action.indoorCourts;
 
     default:

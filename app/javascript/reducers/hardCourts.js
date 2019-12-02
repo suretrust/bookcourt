@@ -1,7 +1,7 @@
 const hardCourts = (state = [], action) => {
   switch (action.type) {
-    case 'SET__CLAY_COURTS':
-      return action.courts;
+    case 'SET_HARD_COURTS':
+      return action.hardCourts;
 
     default:
       return state;
