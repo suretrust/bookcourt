@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const NotFound = ({ history }) => {
   const goBack = () => {
@@ -13,10 +14,18 @@ const NotFound = ({ history }) => {
   return (
     <div>
       <h3>Whoops! Page not found</h3>
-      <button onClick={handleClick}>Go Back</button>
+      <button onClick={handleClick} type="button">
+        Go Back
+      </button>
       <Link to="/">Return to Homepage</Link>
     </div>
   );
+};
+
+NotFound.propTypes = {
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default NotFound;
