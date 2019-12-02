@@ -1,7 +1,7 @@
 const grassCourts = (state = [], action) => {
   switch (action.type) {
-    case 'SET__CLAY_COURTS':
-      return action.courts;
+    case 'SET_GRASS_COURTS':
+      return action.grassCourts;
 
     default:
       return state;
