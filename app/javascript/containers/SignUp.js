@@ -30,10 +30,10 @@ const mapDispatchToProps = dispatch => ({
 
 class SignUp extends React.Component {
   state = {
-    email: '',
+    email: 'sa@sa.com',
     errMsg: '',
     redirectTo: false,
-    disabled: true,
+    disabled: false,
   };
 
   handleEmailChange = e => {
@@ -154,6 +154,7 @@ class SignUp extends React.Component {
           noValidate
         >
           <input
+            autoFocus
             type="email"
             placeholder="Email address"
             value={email}

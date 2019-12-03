@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import store from '../store/store';
 import CourtTypes from './CourtTypes';
 import CourtsList from '../containers/CourtsList';
@@ -9,6 +10,8 @@ import SignUp from '../containers/SignUp';
 import NotFound from './NotFound';
 import CourtDetails from '../containers/CourtDetails';
 import BookCourt from './BookCourt';
+import Bookings from './Bookings';
+import BookingConfirmed from './BookingConfirmed';
 
 function App() {
   return (
@@ -22,6 +25,8 @@ function App() {
             <Route path="/court-types/:type" component={CourtsList} />
             <Route path="/courts/:id" component={CourtDetails} />
             <Route path="/book-court/:id" component={BookCourt} />
+            <Route path="/bookings" component={Bookings} />
+            <Route path="/booking-confirmed" component={BookingConfirmed} />
             <Route component={NotFound} />
           </Switch>
         </Router>

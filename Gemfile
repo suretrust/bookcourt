@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem "valid_email2"
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.3.1'
 
 
 # Use Active Storage variant
@@ -36,6 +38,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'hirb'
   gem 'factory_bot_rails'
   gem 'shoulda', '~> 3.6'
 end
