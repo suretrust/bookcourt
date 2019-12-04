@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
+import { Table } from 'react-bootstrap';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -21,16 +22,32 @@ const Bookings = ({ user }) => {
   };
 
   return (
-    <section>
-      <h2>My bookings</h2>
-      <div>
-        {bookings.map(booking => (
-          <section key={booking.id}>
-            <div>{booking.date}</div>
-            <div>{booking.court_name}</div>
-            <div>{booking.time}</div>
-          </section>
-        ))}
+    <section
+      style={{ backgroundColor: '#e2f0d3' }}
+      className="text-center Bookings"
+    >
+      <div className="p-5 bookings">
+        <h3 className="bold green">My bookings</h3>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bookings.map((booking, index) => (
+              <tr key={booking.id}>
+                <td>{index + 1}</td>
+                <td>{booking.court_name}</td>
+                <td>{booking.date}</td>
+                <td>{booking.time}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       </div>
     </section>
   );

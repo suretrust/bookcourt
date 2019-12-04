@@ -1,12 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Col, Row } from 'react-bootstrap';
 
 const BookingConfirmed = () => {
   return (
-    <section>
-      <h2>Booking Confirmed!</h2>
-      <Link to="/court-types">Book another court</Link>
-      <Link to="/bookings">Check Bookings</Link>
+    <section
+      style={{ backgroundColor: '#e2f0d3' }}
+      className="d-flex flex-column text-center align-items-center full-height p-5"
+    >
+      <h2 className="green bold pt-5">Booking Confirmed!</h2>
+      <Row className="p-5 text-center">
+        <Col lg={12} className="my-3">
+          <Link to="/court-types" className="norm-button">
+            Book Another Court
+          </Link>
+        </Col>
+        <Col lg={12} className="my-3">
+          <Link to="/bookings" className="focus-button">
+            Check Bookings
+          </Link>
+        </Col>
+      </Row>
     </section>
   );
 };

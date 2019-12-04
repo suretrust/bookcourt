@@ -16,15 +16,32 @@ const CourtDetails = ({ match, courts }) => {
   const court = courts.filter(court => court.id === id)[0];
 
   return (
-    <section>
-      <h2>{court.name}</h2>
-      <img src={court.image} alt="court" />
-      <div>${court.cost}</div>
-      <a href={`tel:+${court.phone}`}>Call</a>
-      <h3>Court's Info</h3>
-      <div>{court.location}</div>
-      <div>{court.phone}</div>
-      <Link to={`/book-court/${court.id}`}>Book Court</Link>
+    <section
+      style={{ backgroundColor: '#e2f0d3' }}
+      className="text-center full-height"
+    >
+      <div className="CourtDetails pt-5">
+        <h4 className="green bold">
+          {`${court.name} `}
+          <span className="badge badge-secondary">{`$${court.cost}`}</span>
+        </h4>
+        <img src={court.image} alt="court" />
+        <div className="mt-2 mb-5 px-2">{court.location}</div>
+        <div className="mt-3">
+          <a
+            href={`tel:+${court.phone}`}
+            className="px-3 py-2 border-radius-left bg-clear green"
+          >
+            Call
+          </a>
+          <Link
+            to={`/book-court/${court.id}`}
+            className="px-3 py-2 border-radius-right bg-green"
+          >
+            Book Court
+          </Link>
+        </div>
+      </div>
     </section>
   );
 };

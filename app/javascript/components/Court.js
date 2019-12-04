@@ -5,16 +5,27 @@ import PropTypes from 'prop-types';
 const Court = ({ court }) => {
   return (
     <section>
-      <div>
-        <img src={court.image} alt="court-img" />
-        <div>Share</div>
-        <div>{court.court_type}</div>
-        <div>{court.name}</div>
-        <div>{court.location}</div>
-        <div>{`$${court.cost}`}</div>
-        <Link to={`/courts/${court.id}`}>VIEW COURT DETAILS</Link>
-        <a href={`tel:+${court.phone}`}>Call</a>
-        <Link to={`/book-court/${court.id}`}>Book Court</Link>
+      <img src={court.image} alt="court-img" />
+      <p className="bold mt-2">
+        {`${court.name} `}
+        <span className="badge badge-secondary">{`$${court.cost}`}</span>
+      </p>
+      <Link to={`/courts/${court.id}`} className="bolder green mb-2 small">
+        VIEW COURT DETAILS
+      </Link>
+      <div className="mt-4">
+        <a
+          href={`tel:+${court.phone}`}
+          className="px-3 py-2 border-radius-left bg-clear green"
+        >
+          Call
+        </a>
+        <Link
+          to={`/book-court/${court.id}`}
+          className="px-3 py-2 border-radius-right bg-green"
+        >
+          Book Court
+        </Link>
       </div>
     </section>
   );

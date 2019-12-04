@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
+import { Form } from 'react-bootstrap';
 
 const csrfToken = document.querySelector('[name=csrf-token]').content;
 Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
@@ -48,6 +49,8 @@ class BookCourt extends React.Component {
 
   handleTimeChange = async e => {
     e.preventDefault();
+    const { time, date } = this.state;
+    if (time && date) this.setState({ fetchError: '' });
     const { value } = e.target;
     this.setState({ time: value });
     try {
@@ -59,8 +62,10 @@ class BookCourt extends React.Component {
   };
 
   handleDateChange = async e => {
+    const { time, date } = this.state;
     const { value } = e.target;
     const { today } = this;
+    if (time && date) this.setState({ fetchError: '' });
     if (value < today) {
       this.setState({
         errMsg: 'You can only choose today or a day in the future',
@@ -95,6 +100,8 @@ class BookCourt extends React.Component {
       } catch (error) {
         this.setState({ fetchError: error });
       }
+    } else {
+      this.setState({ fetchError: 'The date and time must be filled' });
     }
   };
 
@@ -157,85 +164,101 @@ class BookCourt extends React.Component {
     ];
 
     return (
-      <section>
-        {redirectTo ? <Redirect to="/booking-confirmed" /> : null}
-        <div>{fetchError}</div>
-        <form>
-          <label htmlFor="email">
-            Email
-            <input
-              id="email"
-              type="email"
-              value={user.email}
-              placeholder="Email Address"
-              disabled
-            />
-          </label>
-          <label htmlFor="name">
-            Name of Court
-            <input
-              id="name"
-              type="name"
-              value={court.name}
-              placeholder="Court name"
-              disabled
-            />
-          </label>
-          <label htmlFor="location">
-            Location
-            <input
-              id="location"
-              type="location"
-              value={court.location}
-              placeholder="Court Location"
-              disabled
-            />
-          </label>
-          <label htmlFor="cost">
-            Amount
-            <input
-              id="cost"
-              type="cost"
-              value={`$${court.cost}`}
-              placeholder="Amount"
-              disabled
-            />
-          </label>
-          <label htmlFor="date">
-            Date
-            {errMsg}
-            <input
-              id="date"
-              type="date"
-              value={date}
-              placeholder="Date"
-              onChange={handleDateChange}
-            />
-          </label>
-          <label htmlFor="time">
-            Time
-            <select onChange={handleTimeChange} value={time}>
-              <option value="" disabled>
-                Choose available time
-              </option>
-              {openTimes.map(openTime => (
-                <option
-                  key={openTime}
-                  value={openTime}
-                  disabled={invalidDates.includes(openTime) ? true : false}
-                >
-                  {openTime}
+      <section style={{ backgroundColor: '#e2f0d3' }} className="BookCourt">
+        <div className="book-court p-5">
+          {redirectTo ? <Redirect to="/booking-confirmed" /> : null}
+          <h4 className="green text-center bold">Booking Form</h4>
+          <div className="text-danger text-center">{fetchError}</div>
+          <Form>
+            <Form.Group>
+              <Form.Label htmlFor="email">Email</Form.Label>
+              <Form.Control
+                id="email"
+                type="email"
+                value={user.email}
+                placeholder="Email Address"
+                disabled
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="name">Name of Court</Form.Label>
+              <Form.Control
+                id="name"
+                type="name"
+                value={court.name}
+                placeholder="Court name"
+                disabled
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="location">Location</Form.Label>
+              <Form.Control
+                id="location"
+                type="location"
+                value={court.location}
+                placeholder="Court Location"
+                disabled
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="cost">Amount</Form.Label>
+              <Form.Control
+                id="cost"
+                type="cost"
+                value={`$${court.cost}`}
+                placeholder="Amount"
+                disabled
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="date">Date</Form.Label>
+              <Form.Control
+                id="date"
+                type="date"
+                value={date}
+                placeholder="Date"
+                onChange={handleDateChange}
+              />
+              <small className="text-danger">{errMsg}</small>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="time">Time</Form.Label>
+              <Form.Control
+                as="select"
+                onChange={handleTimeChange}
+                value={time}
+              >
+                <option value="" disabled>
+                  Choose available time
                 </option>
-              ))}
-            </select>
-          </label>
-          <button type="submit" onClick={handleGoBack}>
-            Cancel
-          </button>
-          <button type="submit" onClick={handleSubmit} disabled={disabled}>
-            Book Now
-          </button>
-        </form>
+                {openTimes.map(openTime => (
+                  <option
+                    key={openTime}
+                    value={openTime}
+                    disabled={invalidDates.includes(openTime) ? true : false}
+                  >
+                    {openTime}
+                  </option>
+                ))}
+              </Form.Control>
+            </Form.Group>
+            <button
+              type="submit"
+              onClick={handleGoBack}
+              className="norm-button"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              disabled={disabled}
+              className="focus-button ml-2"
+            >
+              Book Now
+            </button>
+          </Form>
+        </div>
       </section>
     );
   }

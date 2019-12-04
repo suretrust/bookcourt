@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { Container, Form } from 'react-bootstrap';
 import Axios from 'axios';
 import {
   setUser,
@@ -30,10 +31,10 @@ const mapDispatchToProps = dispatch => ({
 
 class SignUp extends React.Component {
   state = {
-    email: 'sa@sa.com',
+    email: '',
     errMsg: '',
     redirectTo: false,
-    disabled: false,
+    disabled: true,
   };
 
   handleEmailChange = e => {
@@ -141,31 +142,44 @@ class SignUp extends React.Component {
     const { errMsg, email, redirectTo, disabled } = this.state;
 
     return (
-      <section>
-        <div>
-          {redirectTo ? <Redirect to="/court-types" /> : null}
-          <h1>WELCOME</h1>
-          <p>Enter your email to Sign Up</p>
+      <div className="SignUp text-center pt-5">
+        <div className="container p-5">
+          <h4 className="py-5 bold">
+            BOOK<span className="green">OURT</span>
+          </h4>
+          <div>
+            {redirectTo ? <Redirect to="/court-types" /> : null}
+            <h3>WELCOME</h3>
+            <p>Enter your email to continue</p>
+          </div>
+          <Form
+            onSubmit={
+              emailIsValid(email) ? handleSubmit : e => e.preventDefault()
+            }
+            noValidate
+          >
+            <Form.Group>
+              <Form.Control
+                className="input"
+                type="email"
+                placeholder="Email address"
+                value={email}
+                onChange={handleEmailChange}
+              />
+              <small className="text-danger">{errMsg}</small>
+            </Form.Group>
+            <div>
+              <button
+                type="submit"
+                disabled={disabled}
+                className="focus-button my-4"
+              >
+                Continue
+              </button>
+            </div>
+          </Form>
         </div>
-        <form
-          onSubmit={
-            emailIsValid(email) ? handleSubmit : e => e.preventDefault()
-          }
-          noValidate
-        >
-          <input
-            autoFocus
-            type="email"
-            placeholder="Email address"
-            value={email}
-            onChange={handleEmailChange}
-          />
-          <small>{errMsg}</small>
-          <button type="submit" disabled={disabled}>
-            Continue
-          </button>
-        </form>
-      </section>
+      </div>
     );
   }
 }

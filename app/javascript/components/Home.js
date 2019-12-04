@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import Main from './Main';
 import WhyUS from './WhyUs';
 import HowItWorks from './HowItWorks';
@@ -8,8 +9,10 @@ const Home = () => {
   return (
     <main>
       <Main />
-      <WhyUS />
-      <HowItWorks />
+      <Container>
+        <WhyUS />
+        <HowItWorks />
+      </Container>
       <Footer />
     </main>
   );

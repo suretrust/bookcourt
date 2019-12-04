@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Court from '../components/Court';
+import { Row, Col } from 'react-bootstrap';
 
 const mapStateToProps = state => ({
   courts: state.courts,
@@ -47,14 +48,18 @@ const CourtsList = ({
   };
 
   return (
-    <section>
-      <input type="text" placeholder="Search for a court by name" />
-      <button type="submit">Search</button>
-      <div>
+    <section
+      style={{ backgroundColor: '#e2f0d3' }}
+      className="CourtTypes text-center px-5 CourtList"
+    >
+      <h2 className="bold pt-4 pb-1 green">{courtFilter()[0].court_type}</h2>
+      <Row className="row">
         {courtFilter().map(court => (
-          <Court key={court.id} court={court} />
+          <Col key={court.id} lg={6} md={6} sm={12} className="Court my-3 py-3">
+            <Court court={court} />
+          </Col>
         ))}
-      </div>
+      </Row>
     </section>
   );
 };
