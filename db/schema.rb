@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 2019_12_03_110938) do
     t.bigint "court_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "date", null: false
-    t.string "time", null: false
     t.string "court_name"
+    t.string "date", null: false
+    t.string "time", null: false
     t.index ["court_id"], name: "index_bookings_on_court_id"
     t.index ["user_id", "court_id", "date", "time"], name: "index_bookings_on_user_id_and_court_id_and_date_and_time", unique: true
     t.index ["user_id"], name: "index_bookings_on_user_id"
