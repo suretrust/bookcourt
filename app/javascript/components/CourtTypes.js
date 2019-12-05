@@ -160,8 +160,8 @@ const CourtTypes = () => {
             </Row>
           </Col>
         </Row>
+        {courts[0] ? <SearchResult courts={courts} /> : ''}
       </div>
-      {courts[0] ? <SearchResult courts={courts} /> : ''}
       <MobileFooter />
     </section>
   );

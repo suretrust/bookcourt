@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Container, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import Axios from 'axios';
 import {
   setUser,

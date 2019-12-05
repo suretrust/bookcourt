@@ -7,7 +7,13 @@ const SearchResult = ({ courts }) => {
     <section>
       <Row className="row">
         {courts.map(court => (
-          <Col key={court.id} lg={6} md={6} sm={12} className="Court my-3 py-3">
+          <Col
+            key={court.id}
+            lg={12}
+            md={12}
+            sm={12}
+            className="Court my-3 py-3"
+          >
             <Court court={court} />
           </Col>
         ))}
