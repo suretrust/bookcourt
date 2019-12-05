@@ -52,7 +52,7 @@ const CourtsList = ({
   return (
     <section style={{ backgroundColor: '#e2f0d3' }}>
       <NavBar />
-      <div className="CourtTypes text-center px-5 CourtList">
+      <div className="CourtTypes text-center px-5 pb-5 CourtList">
         <h2 className="bold pt-4 pb-1 green">
           {match.params.type === 'all-courts'
             ? 'All Courts'
