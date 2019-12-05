@@ -4,6 +4,7 @@ import Axios from 'axios';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import NavBar from './NavBar';
 import SearchResult from './SearchResult';
+import MobileFooter from './MobileFooter';
 
 const CourtTypes = () => {
   const [input, setInput] = useState('');
@@ -161,6 +162,7 @@ const CourtTypes = () => {
         </Row>
         {courts[0] ? <SearchResult courts={courts} /> : ''}
       </div>
+      <MobileFooter />
     </section>
   );
 };
