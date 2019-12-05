@@ -45,7 +45,7 @@ const CourtTypes = () => {
                   key={'All Courts'}
                   className="court-type-link"
                   to={`/court-types/all-courts`}
-                  className="type-btn"
+                  className="btn btn-outline-success btn-block"
                 >
                   <small>All Courts</small>
                 </Link>
@@ -55,7 +55,7 @@ const CourtTypes = () => {
                   key={'Carpet Courts'}
                   className="court-type-link"
                   to={`/court-types/carpet-courts`}
-                  className="type-btn"
+                  className="btn btn-outline-success btn-block"
                 >
                   <small>Carpet Courts</small>
                 </Link>
@@ -69,7 +69,7 @@ const CourtTypes = () => {
                   key={'Clay Courts'}
                   className="court-type-link"
                   to={`/court-types/clay-courts`}
-                  className="type-btn"
+                  className="btn btn-outline-success btn-block"
                 >
                   <small>Clay Courts</small>
                 </Link>
@@ -79,7 +79,7 @@ const CourtTypes = () => {
                   key={'Hard Courts'}
                   className="court-type-link"
                   to={`/court-types/hard-courts`}
-                  className="type-btn"
+                  className="btn btn-outline-success btn-block"
                 >
                   <small>Hard Courts</small>
                 </Link>
@@ -93,7 +93,7 @@ const CourtTypes = () => {
                   key={'Grass Courts'}
                   className="court-type-link"
                   to={`/court-types/grass-courts`}
-                  className="type-btn"
+                  className="btn btn-outline-success btn-block"
                 >
                   <small>Grass Courts</small>
                 </Link>
@@ -103,7 +103,7 @@ const CourtTypes = () => {
                   key={'Indoor Courts'}
                   className="court-type-link"
                   to={`/court-types/indoor-courts`}
-                  className="type-btn"
+                  className="btn btn-outline-success btn-block"
                 >
                   <small>Indoor Courts</small>
                 </Link>
