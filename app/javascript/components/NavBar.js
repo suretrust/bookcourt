@@ -6,9 +6,9 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" style={{ maxWidth: '991px', margin: '0 auto' }}>
       <Navbar.Brand>
-        <div className="bold">
+        <Link to="/" className="bold decoration-on-hover">
           BOOK<span className="green">OURT</span>
-        </div>
+        </Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="green" />
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">

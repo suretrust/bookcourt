@@ -101,8 +101,27 @@ html {
     }
 }
 
+.NotFound {
+    min-height: 100vh;
+    margin: 0 auto;
+
+    img {
+        max-width: 50%;
+    }
+}
+
 .center-me {
     margin: 0 auto;
+}
+
+.decoration-on-hover {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+    }
 }
 
 .full-height {
