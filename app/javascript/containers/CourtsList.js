@@ -53,7 +53,11 @@ const CourtsList = ({
     <section style={{ backgroundColor: '#e2f0d3' }}>
       <NavBar />
       <div className="CourtTypes text-center px-5 CourtList">
-        <h2 className="bold pt-4 pb-1 green">{courtFilter()[0].court_type}</h2>
+        <h2 className="bold pt-4 pb-1 green">
+          {match.params.type === 'all-courts'
+            ? 'All Courts'
+            : courtFilter()[0].court_type}
+        </h2>
         <Row className="row">
           {courtFilter().map(court => (
             <Col
