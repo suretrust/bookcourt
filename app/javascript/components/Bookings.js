@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
 import NavBar from './NavBar';
@@ -11,17 +12,16 @@ const mapStateToProps = state => ({
 
 const Bookings = ({ user }) => {
   const [bookings, setBookings] = useState([]);
-
-  useEffect(() => {
-    getBookingsFromDb();
-  }, []);
-
   const getBookingsFromDb = async () => {
     await Axios.get('/api/v1/bookings').then(res => {
       const data = res.data.filter(data => data.user_id === user.id);
       setBookings(data);
     });
   };
+
+  useEffect(() => {
+    getBookingsFromDb();
+  }, []);
 
   return (
     <section
@@ -55,6 +55,13 @@ const Bookings = ({ user }) => {
       <MobileFooter />
     </section>
   );
+};
+
+Bookings.propTypes = {
+  user: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default connect(mapStateToProps, null)(Bookings);

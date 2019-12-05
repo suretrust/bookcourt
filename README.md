@@ -24,6 +24,7 @@ Bookourt is a mobile first web app built with react and rails. The react front e
 - React-bootstrap
 - react-create-app
 - react-rails
+- RSpec
 - npm
 
 ### 🏠 [Homepage](https://bookourt.herokuapp.com/)

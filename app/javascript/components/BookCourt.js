@@ -28,6 +28,11 @@ class BookCourt extends React.Component {
     invalidDates: [],
   };
 
+  async componentDidMount() {
+    const invalidDates = await this.getInvalidDates();
+    this.setState({ invalidDates });
+  }
+
   goBack = () => {
     const { history } = this.props;
     history.goBack();
@@ -43,11 +48,6 @@ class BookCourt extends React.Component {
     });
     return invalidDates;
   };
-
-  async componentDidMount() {
-    const invalidDates = await this.getInvalidDates();
-    this.setState({ invalidDates });
-  }
 
   handleTimeChange = async e => {
     e.preventDefault();
@@ -238,7 +238,7 @@ class BookCourt extends React.Component {
                   <option
                     key={openTime}
                     value={openTime}
-                    disabled={invalidDates.includes(openTime) ? true : false}
+                    disabled={invalidDates.includes(openTime)}
                   >
                     {openTime}
                   </option>
@@ -274,6 +274,7 @@ BookCourt.propTypes = {
   }).isRequired,
   user: PropTypes.shape({
     email: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   }).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({

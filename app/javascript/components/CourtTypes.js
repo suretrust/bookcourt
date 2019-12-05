@@ -91,20 +91,18 @@ const CourtTypes = () => {
             <Row className="full-height mb-2">
               <Col>
                 <Link
-                  key={'All Courts'}
-                  className="court-type-link"
-                  to={`/court-types/all-courts`}
-                  className="btn btn-outline-success btn-block"
+                  key="All Courts"
+                  className="court-type-link btn btn-outline-success btn-block"
+                  to="/court-types/all-courts"
                 >
                   <small>All Courts</small>
                 </Link>
               </Col>
               <Col>
                 <Link
-                  key={'Carpet Courts'}
-                  className="court-type-link"
-                  to={`/court-types/carpet-courts`}
-                  className="btn btn-outline-success btn-block"
+                  key="Carpet Courts"
+                  className="court-type-link btn btn-outline-success btn-block"
+                  to="/court-types/carpet-courts"
                 >
                   <small>Carpet Courts</small>
                 </Link>
@@ -115,20 +113,18 @@ const CourtTypes = () => {
             <Row className="full-height mb-2">
               <Col>
                 <Link
-                  key={'Clay Courts'}
-                  className="court-type-link"
-                  to={`/court-types/clay-courts`}
-                  className="btn btn-outline-success btn-block"
+                  key="Clay Courts"
+                  className="court-type-link btn btn-outline-success btn-block"
+                  to="/court-types/clay-courts"
                 >
                   <small>Clay Courts</small>
                 </Link>
               </Col>
               <Col>
                 <Link
-                  key={'Hard Courts'}
-                  className="court-type-link"
-                  to={`/court-types/hard-courts`}
-                  className="btn btn-outline-success btn-block"
+                  key="Hard Courts"
+                  className="court-type-link btn btn-outline-success btn-block"
+                  to="/court-types/hard-courts"
                 >
                   <small>Hard Courts</small>
                 </Link>
@@ -139,20 +135,18 @@ const CourtTypes = () => {
             <Row className="full-height">
               <Col>
                 <Link
-                  key={'Grass Courts'}
-                  className="court-type-link"
-                  to={`/court-types/grass-courts`}
-                  className="btn btn-outline-success btn-block"
+                  key="Grass Courts"
+                  className="court-type-link btn btn-outline-success btn-block"
+                  to="/court-types/grass-courts"
                 >
                   <small>Grass Courts</small>
                 </Link>
               </Col>
               <Col>
                 <Link
-                  key={'Indoor Courts'}
-                  className="court-type-link"
-                  to={`/court-types/indoor-courts`}
-                  className="btn btn-outline-success btn-block"
+                  key="Indoor Courts"
+                  className="court-type-link btn btn-outline-success btn-block"
+                  to="/court-types/indoor-courts"
                 >
                   <small>Indoor Courts</small>
                 </Link>
