@@ -49,19 +49,24 @@ const CourtsList = ({
   };
 
   return (
-    <section
-      style={{ backgroundColor: '#e2f0d3' }}
-      className="CourtTypes text-center px-5 CourtList"
-    >
+    <section style={{ backgroundColor: '#e2f0d3' }}>
       <NavBar />
-      <h2 className="bold pt-4 pb-1 green">{courtFilter()[0].court_type}</h2>
-      <Row className="row">
-        {courtFilter().map(court => (
-          <Col key={court.id} lg={6} md={6} sm={12} className="Court my-3 py-3">
-            <Court court={court} />
-          </Col>
-        ))}
-      </Row>
+      <div className="CourtTypes text-center px-5 CourtList">
+        <h2 className="bold pt-4 pb-1 green">{courtFilter()[0].court_type}</h2>
+        <Row className="row">
+          {courtFilter().map(court => (
+            <Col
+              key={court.id}
+              lg={6}
+              md={6}
+              sm={12}
+              className="Court my-3 py-3"
+            >
+              <Court court={court} />
+            </Col>
+          ))}
+        </Row>
+      </div>
     </section>
   );
 };

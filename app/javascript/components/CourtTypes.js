@@ -14,6 +14,7 @@ const CourtTypes = () => {
   const handleChange = e => {
     e.preventDefault();
     setInput(e.target.value.toLowerCase());
+    setCourts({});
     setNotfound('');
     if (input !== '') {
       setErrMsg('');
