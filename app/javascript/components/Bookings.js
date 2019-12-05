@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
 import NavBar from './NavBar';
+import MobileFooter from './MobileFooter';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -51,6 +52,7 @@ const Bookings = ({ user }) => {
           </tbody>
         </Table>
       </div>
+      <MobileFooter />
     </section>
   );
 };

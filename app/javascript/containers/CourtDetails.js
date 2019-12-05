@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Axios from 'axios';
 import NavBar from '../components/NavBar';
+import MobileFooter from '../components/MobileFooter';
 
 const csrfToken = document.querySelector('[name=csrf-token]').content;
 Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
@@ -44,6 +45,7 @@ const CourtDetails = ({ match, courts }) => {
           </Link>
         </div>
       </div>
+      <MobileFooter />
     </section>
   );
 };

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Axios from 'axios';
 import { Form } from 'react-bootstrap';
 import NavBar from './NavBar';
+import MobileFooter from './MobileFooter';
 
 const csrfToken = document.querySelector('[name=csrf-token]').content;
 Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
@@ -261,6 +262,7 @@ class BookCourt extends React.Component {
             </button>
           </Form>
         </div>
+        <MobileFooter />
       </section>
     );
   }
