@@ -83,7 +83,7 @@ html {
         max-width: 576px;
 
         .min-height {
-            min-height: 70px;
+            min-height: 4rem;
 
             .full-height {
                 height: 100%;
@@ -110,7 +110,7 @@ html {
 }
 
 .border-radius {
-    border-radius: 20px;
+    border-radius: 1.5rem;
 }
 
 .green {
@@ -118,14 +118,14 @@ html {
 }
 
 .border-radius-right {
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
     border-right: 1px solid black;
 }
 
 .border-radius-left {
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
     border-left: 1px solid black;
 }
 
@@ -164,7 +164,7 @@ html {
         max-width: 576px;
 
         .input {
-            border-radius: 20px;
+            border-radius: 1.5rem;
         }
     }
 }

@@ -43,7 +43,7 @@ const CourtTypes = () => {
                   key={'All Courts'}
                   className="court-type-link"
                   to={`/court-types/all-courts`}
-                  className="type-btn"
+                  className="norm-button"
                 >
                   <small>All Courts</small>
                 </Link>
@@ -53,7 +53,7 @@ const CourtTypes = () => {
                   key={'Carpet Courts'}
                   className="court-type-link"
                   to={`/court-types/carpet-courts`}
-                  className="type-btn"
+                  className="norm-button"
                 >
                   <small>Carpet Courts</small>
                 </Link>
@@ -67,7 +67,7 @@ const CourtTypes = () => {
                   key={'Clay Courts'}
                   className="court-type-link"
                   to={`/court-types/clay-courts`}
-                  className="type-btn"
+                  className="norm-button"
                 >
                   <small>Clay Courts</small>
                 </Link>
@@ -77,7 +77,7 @@ const CourtTypes = () => {
                   key={'Hard Courts'}
                   className="court-type-link"
                   to={`/court-types/hard-courts`}
-                  className="type-btn"
+                  className="norm-button"
                 >
                   <small>Hard Courts</small>
                 </Link>
@@ -91,7 +91,7 @@ const CourtTypes = () => {
                   key={'Grass Courts'}
                   className="court-type-link"
                   to={`/court-types/grass-courts`}
-                  className="type-btn"
+                  className="norm-button"
                 >
                   <small>Grass Courts</small>
                 </Link>
@@ -101,7 +101,7 @@ const CourtTypes = () => {
                   key={'Indoor Courts'}
                   className="court-type-link"
                   to={`/court-types/indoor-courts`}
-                  className="focus-button"
+                  className="norm-button"
                 >
                   <small>Indoor Courts</small>
                 </Link>
