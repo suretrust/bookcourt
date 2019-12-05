@@ -1,10 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import Axios from 'axios';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import NavBar from './NavBar';
+import SearchResult from './SearchResult';
 
 const CourtTypes = () => {
+  const [input, setInput] = useState('');
+  const [errMsg, setErrMsg] = useState('');
+  const [courts, setCourts] = useState({});
+  const [notFound, setNotfound] = useState('');
+
+  const handleChange = e => {
+    e.preventDefault();
+    setInput(e.target.value.toLowerCase());
+    setNotfound('');
+    if (input !== '') {
+      setErrMsg('');
+    }
+  };
+
+  const getCourts = async () => {
+    const courts = await Axios.get('api/v1/courts')
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        return err;
+      });
+    return courts;
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    if (input === '') {
+      setErrMsg('You must enter a court name');
+    } else {
+      const courtsDb = await getCourts();
+      const filteredCourts = courtsDb.filter(court =>
+        court.name.toLowerCase().includes(input)
+      );
+      if (!filteredCourts[0]) {
+        setNotfound('Sorry, court not found!');
+      } else {
+        setCourts(filteredCourts);
+      }
+    }
+  };
+
   return (
     <section
       style={{ backgroundColor: '#e2f0d3' }}
@@ -12,14 +55,18 @@ const CourtTypes = () => {
     >
       <NavBar />
       <div className="container p-5">
-        <Form>
+        <h6 className="text-danger">{notFound}</h6>
+        <Form onSubmit={handleSubmit}>
           <Form.Row>
             <Col lg={9} md={9} sm={9} xs={8}>
               <Form.Control
+                onChange={handleChange}
                 className="input"
+                value={input}
                 type="text"
                 placeholder="Search by name"
               />
+              <small className="text-danger">{errMsg}</small>
             </Col>
             <Col lg={3} md={3} sm={3} xs={4}>
               <Button
@@ -32,14 +79,14 @@ const CourtTypes = () => {
             </Col>
           </Form.Row>
         </Form>
-        <h6 className="my-3 bold">SEARCH COURTS</h6>
+        <h6 className="mt-3 bold">SEARCH COURTS</h6>
         <small>
           Search by directly typing the court's name above. You can also search
           by the court types listed below.
         </small>
-        <Row className="my-5">
+        <Row className="my-2">
           <Col lg={12} className="min-height">
-            <Row className="full-height">
+            <Row className="full-height mb-2">
               <Col>
                 <Link
                   key={'All Courts'}
@@ -63,7 +110,7 @@ const CourtTypes = () => {
             </Row>
           </Col>
           <Col lg={12} className="min-height">
-            <Row className="full-height">
+            <Row className="full-height mb-2">
               <Col>
                 <Link
                   key={'Clay Courts'}
@@ -86,7 +133,7 @@ const CourtTypes = () => {
               </Col>
             </Row>
           </Col>
-          <Col lg={12} className="min-height">
+          <Col lg={12} className="min-height mb-2">
             <Row className="full-height">
               <Col>
                 <Link
@@ -111,6 +158,7 @@ const CourtTypes = () => {
             </Row>
           </Col>
         </Row>
+        {courts[0] ? <SearchResult courts={courts} /> : ''}
       </div>
     </section>
   );
