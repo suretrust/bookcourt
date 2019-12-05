@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
+import NavBar from './NavBar';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -26,6 +27,7 @@ const Bookings = ({ user }) => {
       style={{ backgroundColor: '#e2f0d3' }}
       className="text-center Bookings"
     >
+      <NavBar />
       <div className="p-5 bookings">
         <h3 className="bold green">My bookings</h3>
         <Table striped bordered hover>

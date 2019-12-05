@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Court from '../components/Court';
 import { Row, Col } from 'react-bootstrap';
+import NavBar from '../components/NavBar';
 
 const mapStateToProps = state => ({
   courts: state.courts,
@@ -52,6 +53,7 @@ const CourtsList = ({
       style={{ backgroundColor: '#e2f0d3' }}
       className="CourtTypes text-center px-5 CourtList"
     >
+      <NavBar />
       <h2 className="bold pt-4 pb-1 green">{courtFilter()[0].court_type}</h2>
       <Row className="row">
         {courtFilter().map(court => (

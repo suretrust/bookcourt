@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
 import { Form } from 'react-bootstrap';
+import NavBar from './NavBar';
 
 const csrfToken = document.querySelector('[name=csrf-token]').content;
 Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
@@ -165,6 +166,7 @@ class BookCourt extends React.Component {
 
     return (
       <section style={{ backgroundColor: '#e2f0d3' }} className="BookCourt">
+        <NavBar />
         <div className="book-court p-5">
           {redirectTo ? <Redirect to="/booking-confirmed" /> : null}
           <h4 className="green text-center bold">Booking Form</h4>

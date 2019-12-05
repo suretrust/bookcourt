@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Axios from 'axios';
+import NavBar from '../components/NavBar';
 
 const csrfToken = document.querySelector('[name=csrf-token]').content;
 Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
@@ -20,6 +21,7 @@ const CourtDetails = ({ match, courts }) => {
       style={{ backgroundColor: '#e2f0d3' }}
       className="text-center full-height"
     >
+      <NavBar />
       <div className="CourtDetails pt-5">
         <h4 className="green bold">
           {`${court.name} `}

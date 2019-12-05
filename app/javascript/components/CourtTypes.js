@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Container, Form, Row, Col, Button } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
+import NavBar from './NavBar';
 
 const CourtTypes = () => {
   return (
@@ -9,7 +10,8 @@ const CourtTypes = () => {
       style={{ backgroundColor: '#e2f0d3' }}
       className="CourtTypes text-center"
     >
-      <Container className="container p-5">
+      <NavBar />
+      <div className="container p-5">
         <Form>
           <Form.Row>
             <Col lg={9} md={9} sm={9} xs={8}>
@@ -43,7 +45,7 @@ const CourtTypes = () => {
                   key={'All Courts'}
                   className="court-type-link"
                   to={`/court-types/all-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   <small>All Courts</small>
                 </Link>
@@ -53,7 +55,7 @@ const CourtTypes = () => {
                   key={'Carpet Courts'}
                   className="court-type-link"
                   to={`/court-types/carpet-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   <small>Carpet Courts</small>
                 </Link>
@@ -67,7 +69,7 @@ const CourtTypes = () => {
                   key={'Clay Courts'}
                   className="court-type-link"
                   to={`/court-types/clay-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   <small>Clay Courts</small>
                 </Link>
@@ -77,7 +79,7 @@ const CourtTypes = () => {
                   key={'Hard Courts'}
                   className="court-type-link"
                   to={`/court-types/hard-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   <small>Hard Courts</small>
                 </Link>
@@ -91,7 +93,7 @@ const CourtTypes = () => {
                   key={'Grass Courts'}
                   className="court-type-link"
                   to={`/court-types/grass-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   <small>Grass Courts</small>
                 </Link>
@@ -101,7 +103,7 @@ const CourtTypes = () => {
                   key={'Indoor Courts'}
                   className="court-type-link"
                   to={`/court-types/indoor-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   <small>Indoor Courts</small>
                 </Link>
@@ -109,7 +111,7 @@ const CourtTypes = () => {
             </Row>
           </Col>
         </Row>
-      </Container>
+      </div>
     </section>
   );
 };
