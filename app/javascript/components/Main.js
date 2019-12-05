@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Media, Container } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import TennisImg from '../../assets/images/tennis.svg';
 
@@ -39,7 +39,7 @@ const Main = () => {
               </Link>
             </div>
           </Col>
-          <Col lg md style={styles.Img} className=""></Col>
+          <Col lg md style={styles.Img}></Col>
         </Row>
       </Container>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Jumbotron, Button } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import wideWorld from '../../assets/images/wide-world.png';
 import payment from '../../assets/images/payment.png';
 import tennis from '../../assets/images/tennis.png';

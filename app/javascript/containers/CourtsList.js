@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Court from '../components/Court';
 import { Row, Col } from 'react-bootstrap';
+import Court from '../components/Court';
 import NavBar from '../components/NavBar';
 import MobileFooter from '../components/MobileFooter';
 

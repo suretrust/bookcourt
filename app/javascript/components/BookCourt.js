@@ -40,10 +40,11 @@ class BookCourt extends React.Component {
 
   getInvalidDates = async () => {
     const { match } = this.props;
+    const { date } = this.state;
     const id = Number(match.params.id);
     const invalidDates = await Axios.get('/api/v1/bookings').then(res => {
       return res.data
-        .filter(data => data.court_id === id && data.date === this.state.date)
+        .filter(data => data.court_id === id && data.date === date)
         .map(res => res.time);
     });
     return invalidDates;

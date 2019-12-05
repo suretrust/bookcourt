@@ -1,6 +1,7 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import Court from './Court';
-import { Form, Row, Col, Button } from 'react-bootstrap';
 
 const SearchResult = ({ courts }) => {
   return (
@@ -22,4 +23,7 @@ const SearchResult = ({ courts }) => {
   );
 };
 
+SearchResult.propTypes = {
+  courts: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 export default SearchResult;
