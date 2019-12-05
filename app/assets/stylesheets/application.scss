@@ -215,6 +215,20 @@ button {
     }
 }
 
+.type-btn {
+    border: 1px solid #009688;
+    padding: 1em;
+    background: white;
+    border-radius: 10px;
+    color: #009688;
+
+    &:hover {
+        background: #009688;
+        color: white;
+        text-decoration: none;
+    }
+}
+
 .focus-button {
     padding: 15px 25px;
     border-radius: 25px;

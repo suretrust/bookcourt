@@ -43,7 +43,7 @@ const CourtTypes = () => {
                   key={'All Courts'}
                   className="court-type-link"
                   to={`/court-types/all-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   All Courts
                 </Link>
@@ -53,7 +53,7 @@ const CourtTypes = () => {
                   key={'Carpet Courts'}
                   className="court-type-link"
                   to={`/court-types/carpet-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   Carpet Courts
                 </Link>
@@ -67,7 +67,7 @@ const CourtTypes = () => {
                   key={'Clay Courts'}
                   className="court-type-link"
                   to={`/court-types/clay-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   Clay Courts
                 </Link>
@@ -77,7 +77,7 @@ const CourtTypes = () => {
                   key={'Hard Courts'}
                   className="court-type-link"
                   to={`/court-types/hard-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   Hard Courts
                 </Link>
@@ -91,7 +91,7 @@ const CourtTypes = () => {
                   key={'Grass Courts'}
                   className="court-type-link"
                   to={`/court-types/grass-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   Grass Courts
                 </Link>
@@ -101,7 +101,7 @@ const CourtTypes = () => {
                   key={'Indoor Courts'}
                   className="court-type-link"
                   to={`/court-types/indoor-courts`}
-                  className="norm-button"
+                  className="type-btn"
                 >
                   Indoor Courts
                 </Link>
