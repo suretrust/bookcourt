@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import propTypes from 'prop-types';
 import Back from '../../assets/images/back.svg';
 import Booking from '../../assets/images/calendar.svg';
 import Home from '../../assets/images/home.svg';
@@ -37,5 +38,11 @@ class MobileFooter extends React.Component {
     );
   }
 }
+
+MobileFooter.propTypes = {
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default withRouter(MobileFooter);

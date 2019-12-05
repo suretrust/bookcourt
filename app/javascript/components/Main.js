@@ -39,7 +39,9 @@ const Main = () => {
               </Link>
             </div>
           </Col>
-          <Col lg md style={styles.Img}></Col>
+          <Col lg md style={styles.Img}>
+            {/* image background */}
+          </Col>
         </Row>
       </Container>
     </div>
