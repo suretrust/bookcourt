@@ -101,7 +101,7 @@ const CourtTypes = () => {
                   key={'Indoor Courts'}
                   className="court-type-link"
                   to={`/court-types/indoor-courts`}
-                  className="type-btn"
+                  className="focus-button"
                 >
                   <small>Indoor Courts</small>
                 </Link>

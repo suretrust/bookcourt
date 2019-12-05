@@ -23,6 +23,7 @@
 html {
     min-height: 100vh;
     max-width: 100vw;
+    font-size: 16px;
 }
 
 .Main {
@@ -226,8 +227,8 @@ button {
 }
 
 .focus-button {
-    padding: 15px 25px;
-    border-radius: 25px;
+    padding: 1rem 1.5rem;
+    border-radius: 1.5rem;
     color: white;
     font-weight: bold;
     background: rgb(129, 179, 70);
@@ -256,8 +257,8 @@ button {
 }
 
 .norm-button {
-    padding: 15px 25px;
-    border-radius: 25px;
+    padding: 1rem 1.5rem;
+    border-radius: 1.5rem;
     color: #007367;
     font-weight: bold;
     background: rgb(203, 237, 160);
