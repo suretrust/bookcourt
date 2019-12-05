@@ -29,7 +29,7 @@ const Bookings = ({ user }) => {
     >
       <NavBar />
       <div className="p-5 bookings">
-        <h3 className="bold green">My bookings</h3>
+        <h3 className="bold green">My Bookings</h3>
         <Table striped bordered hover>
           <thead>
             <tr>
