@@ -12,14 +12,14 @@ const CourtTypes = () => {
       <Container className="container p-5">
         <Form>
           <Form.Row>
-            <Col lg={9} md={9} sm={9} xs={9}>
+            <Col lg={9} md={9} sm={9} xs={8}>
               <Form.Control
                 className="input"
                 type="text"
-                placeholder="Search for a court by name"
+                placeholder="Search by name"
               />
             </Col>
-            <Col lg={3} md={3} sm={3} xs={3}>
+            <Col lg={3} md={3} sm={3} xs={4}>
               <Button
                 type="submit"
                 variant="light"
@@ -45,7 +45,7 @@ const CourtTypes = () => {
                   to={`/court-types/all-courts`}
                   className="type-btn"
                 >
-                  All Courts
+                  <small>All Courts</small>
                 </Link>
               </Col>
               <Col>
@@ -55,7 +55,7 @@ const CourtTypes = () => {
                   to={`/court-types/carpet-courts`}
                   className="type-btn"
                 >
-                  Carpet Courts
+                  <small>Carpet Courts</small>
                 </Link>
               </Col>
             </Row>
@@ -69,7 +69,7 @@ const CourtTypes = () => {
                   to={`/court-types/clay-courts`}
                   className="type-btn"
                 >
-                  Clay Courts
+                  <small>Clay Courts</small>
                 </Link>
               </Col>
               <Col>
@@ -79,7 +79,7 @@ const CourtTypes = () => {
                   to={`/court-types/hard-courts`}
                   className="type-btn"
                 >
-                  Hard Courts
+                  <small>Hard Courts</small>
                 </Link>
               </Col>
             </Row>
@@ -93,7 +93,7 @@ const CourtTypes = () => {
                   to={`/court-types/grass-courts`}
                   className="type-btn"
                 >
-                  Grass Courts
+                  <small>Grass Courts</small>
                 </Link>
               </Col>
               <Col>
@@ -103,7 +103,7 @@ const CourtTypes = () => {
                   to={`/court-types/indoor-courts`}
                   className="type-btn"
                 >
-                  Indoor Courts
+                  <small>Indoor Courts</small>
                 </Link>
               </Col>
             </Row>

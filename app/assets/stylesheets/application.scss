@@ -81,10 +81,6 @@ html {
     .container {
         max-width: 576px;
 
-        .input {
-            border-radius: 20px;
-        }
-
         .min-height {
             min-height: 70px;
 
@@ -217,9 +213,9 @@ button {
 
 .type-btn {
     border: 1px solid #009688;
-    padding: 1em;
+    padding: .5em;
     background: white;
-    border-radius: 10px;
+    border-radius: 5px;
     color: #009688;
 
     &:hover {
