@@ -31,7 +31,7 @@ const Bookings = ({ user }) => {
       <NavBar />
       <div className="p-5 bookings">
         <h3 className="bold green">My Bookings</h3>
-        <Table striped bordered hover>
+        <Table striped bordered hover responsive>
           <thead>
             <tr>
               <th>S/N</th>
