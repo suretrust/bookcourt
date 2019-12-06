@@ -20,9 +20,21 @@
     box-shadow: -4px 2px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
+@mixin button-style {
+    @include border-shadow;
+    display: inline-block;
+    transition: all 0.2s;
+    font-size: 0.875em;
+    padding: .875rem 1.25rem;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 * {
     font-family: 'Montserrat', sans-serif;
     outline: none !important;
+    box-sizing: border-box;
 }
 
 html {
@@ -259,13 +271,13 @@ button {
 
 .WhyUs {
     img {
-        max-width: 100%;
+        max-width: 60%;
     }
 }
 
 .HowItWorks {
     img {
-        max-width: 100%;
+        max-width: 60%;
     }
 }
 
@@ -284,14 +296,10 @@ button {
 }
 
 .focus-button {
-    @include border-shadow;
-    padding: 1rem 1.5rem;
-    border-radius: 1.5rem;
+    @include button-style;
     color: white;
-    font-weight: bold;
     background: rgb(129, 179, 70);
     background: linear-gradient(90deg, rgba(129, 179, 70, 1) 18%, rgba(68, 96, 36, 1) 65%, rgba(37, 53, 19, 1) 100%);
-    cursor: pointer;
 
     &:disabled {
         background: linear-gradient(90deg, rgb(156, 159, 154) 18%, rgb(106, 111, 100) 65%, rgba(37, 53, 19, 1) 100%);
@@ -312,14 +320,10 @@ button {
 }
 
 .norm-button {
-    @include border-shadow;
-    padding: 1rem 1.5rem;
-    border-radius: 1.5rem;
+    @include button-style;
     color: #007367;
-    font-weight: bold;
     background: rgb(203, 237, 160);
     background: linear-gradient(90deg, rgba(203, 237, 160, 1) 0%, rgba(177, 230, 116, 1) 83%, rgba(141, 197, 78, 1) 100%);
-    cursor: pointer;
 
     &:hover {
         text-decoration: none;
