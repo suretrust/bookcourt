@@ -161,6 +161,7 @@ class SignUp extends React.Component {
             <Form.Group>
               <Form.Control
                 className="input"
+                name="email"
                 type="email"
                 placeholder="Email address"
                 value={email}

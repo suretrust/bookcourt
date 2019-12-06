@@ -65,6 +65,7 @@ const CourtTypes = () => {
                 onChange={handleChange}
                 className="input"
                 value={input}
+                name="search"
                 type="text"
                 placeholder="Search by name"
               />
