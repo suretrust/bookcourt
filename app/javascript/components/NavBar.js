@@ -16,13 +16,13 @@ const NavBar = () => {
           <Nav className="text-center">
             <Link
               to="/bookings"
-              className="green mx-auto pt-lg-0 pt-md-2 pt-sm-2 pt-xs-2 mr-lg-4 nav-link-btn"
+              className="green mx-auto pt-lg-0 pt-3 mr-lg-4 nav-link-btn"
             >
               Bookings
             </Link>
             <Link
               to="/court-types"
-              className="green mx-auto pt-lg-0 pt-md-2 pt-sm-2 pt-xs-2 nav-link-btn"
+              className="green mx-auto pt-lg-0 pt-3 nav-link-btn"
             >
               Courts
             </Link>
