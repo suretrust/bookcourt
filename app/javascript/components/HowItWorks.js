@@ -12,15 +12,15 @@ const HowItWorks = () => {
       <Row className="text-center">
         <Col lg md={12}>
           <img src={account} alt="account" />
-          <h4 className="bolder">Create an Account</h4>
+          <h5 className="bolder">Create an Account</h5>
         </Col>
         <Col lg md={12}>
           <img src={search} alt="search" />
-          <h4 className="bolder">Search for a court</h4>
+          <h5 className="bolder">Search for a court</h5>
         </Col>
         <Col lg md={12}>
           <img src={booking} alt="booking" />
-          <h4 className="bolder">Book court</h4>
+          <h5 className="bolder">Book court</h5>
         </Col>
       </Row>
       <div className="text-center my-5">
