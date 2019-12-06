@@ -12,12 +12,18 @@ const NavBar = () => {
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="">
-          <Nav className="ml-lg-auto">
-            <Link to="/bookings" className="green nav-link-btn">
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav className="text-center">
+            <Link
+              to="/bookings"
+              className="green mx-auto pt-lg-0 pt-md-2 pt-sm-2 pt-xs-2 mr-lg-4 nav-link-btn"
+            >
               Bookings
             </Link>
-            <Link to="/court-types" className="green nav-link-btn">
+            <Link
+              to="/court-types"
+              className="green mx-auto pt-lg-0 pt-md-2 pt-sm-2 pt-xs-2 nav-link-btn"
+            >
               Courts
             </Link>
           </Nav>
