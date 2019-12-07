@@ -13,7 +13,7 @@ const NavBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav className="text-center">
+          <Nav className="text-center mb-lg-0 mb-3">
             <Link
               to="/bookings"
               className="green mx-auto pt-lg-0 pt-3 mr-lg-4 nav-link-btn"

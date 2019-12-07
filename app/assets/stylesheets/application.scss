@@ -169,7 +169,7 @@ body {
 }
 
 .border-radius {
-    border-radius: 1.5rem;
+    border-radius: 1.5rem !important;
 }
 
 .green {
@@ -189,28 +189,28 @@ body {
 }
 
 .bg-green {
-    color: white;
-    background-color: #009688;
-    border: 1px solid #009688;
+    color: white !important;
+    background: rgb(129, 179, 70) !important;
+    background: linear-gradient(90deg, rgba(129, 179, 70, 1) 18%, rgba(68, 96, 36, 1) 65%, rgba(37, 53, 19, 1) 100%) !important;
+
+
 
     &:hover {
         text-decoration: none;
-        background: white;
-        border: 1px solid #009688;
-        color: #009688;
+        background: white !important;
+        border: 1px solid #009688 !important;
+        color: #009688 !important;
     }
 }
 
-.bg-clear {
-    background-color: white;
-    color: #009688;
-    border: 1px solid #009688;
-
+.bg-whitey {
+    background-color: white !important;
+    border: 1px solid #009688 !important;
 
     &:hover {
         text-decoration: none;
-        background-color: #009688;
-        border: 1px solid white;
+        background: rgb(129, 179, 70) !important;
+        background: linear-gradient(90deg, rgba(129, 179, 70, 1) 18%, rgba(68, 96, 36, 1) 65%, rgba(37, 53, 19, 1) 100%) !important;
         color: white !important;
     }
 }
@@ -235,6 +235,14 @@ body {
     &:hover {
         text-decoration: none;
         border-bottom: .2rem solid rgb(105, 101, 101);
+    }
+}
+
+.court-type-link {
+    background-color: azure !important;
+
+    &:hover {
+        background-color: #009688 !important;
     }
 }
 

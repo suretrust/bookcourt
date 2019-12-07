@@ -16,15 +16,15 @@ const Court = ({ court }) => {
       <div className="mt-4">
         <a
           href={`tel:+${court.phone}`}
-          className="px-3 py-2 border-radius-left bg-clear green"
+          className="px-3 py-2 border-radius bg-whitey btn green mr-2"
         >
-          Call
+          <small>Call</small>
         </a>
         <Link
           to={`/book-court/${court.id}`}
-          className="px-3 py-2 border-radius-right bg-green"
+          className="px-3 py-2 border-radius bg-green btn"
         >
-          Book Court
+          <small>Book Court</small>
         </Link>
       </div>
     </section>

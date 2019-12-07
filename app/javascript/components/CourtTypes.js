@@ -83,10 +83,10 @@ const CourtTypes = () => {
           </Form.Row>
         </Form>
         <h6 className="mt-3 bold">SEARCH COURTS</h6>
-        <small>
+        <p>
           Search by directly typing the court's name above. You can also search
           by the court types listed below.
-        </small>
+        </p>
         <Row className="my-2">
           <Col lg={12} className="min-height">
             <Row className="full-height mb-2">

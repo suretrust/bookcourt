@@ -25,13 +25,13 @@ class MobileFooter extends React.Component {
         <button type="button" to="/" className="link" onClick={handleGoBack}>
           <img src={Back} alt="back" />
         </button>
-        <Link to="/" className="link">
+        <Link to="/court-types" className="link">
           <img src={Home} alt="home" />
         </Link>
         <Link to="/bookings" className="link">
           <img src={Booking} alt="booking" />
         </Link>
-        <Link to="/court-types" className="link">
+        <Link to="/court-types/all-courts" className="link">
           <img src={Courts} alt="courts" />
         </Link>
       </div>
