@@ -16,11 +16,11 @@ const HowItWorks = () => {
         </Col>
         <Col lg md={12}>
           <img src={search} alt="search" />
-          <h5 className="bolder">Search for a court</h5>
+          <h5 className="bolder">Search for a Court</h5>
         </Col>
         <Col lg md={12}>
           <img src={booking} alt="booking" />
-          <h5 className="bolder">Book court</h5>
+          <h5 className="bolder">Book Court</h5>
         </Col>
       </Row>
       <div className="text-center my-5">
