@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
 import NavBar from './NavBar';
@@ -28,6 +30,7 @@ const Bookings = ({ user }) => {
       style={{ backgroundColor: '#e2f0d3' }}
       className="text-center Bookings"
     >
+      {!user.id ? <Redirect to="/sign-up" /> : null}
       <NavBar />
       <div className="p-5 bookings">
         <h3 className="bold green">My Bookings</h3>
@@ -64,4 +67,4 @@ Bookings.propTypes = {
   }).isRequired,
 };
 
-export default connect(mapStateToProps, null)(Bookings);
+export default connect(mapStateToProps, null)(withRouter(Bookings));

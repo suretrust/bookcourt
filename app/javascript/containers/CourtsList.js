@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import Court from '../components/Court';
@@ -7,6 +9,7 @@ import NavBar from '../components/NavBar';
 import MobileFooter from '../components/MobileFooter';
 
 const mapStateToProps = state => ({
+  user: state.user,
   courts: state.courts,
   carpetCourts: state.carpetCourts,
   clayCourts: state.clayCourts,
@@ -16,6 +19,7 @@ const mapStateToProps = state => ({
 });
 
 const CourtsList = ({
+  user,
   match,
   courts,
   clayCourts,
@@ -51,6 +55,7 @@ const CourtsList = ({
 
   return (
     <section style={{ backgroundColor: '#e2f0d3' }}>
+      {!user.id ? <Redirect to="/sign-up" /> : null}
       <NavBar />
       <div className="text-center px-5 pb-5 CourtList">
         <h2 className="bold pt-4 pb-1 green">
@@ -83,6 +88,9 @@ CourtsList.propTypes = {
       type: PropTypes.node,
     }).isRequired,
   }).isRequired,
+  user: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }).isRequired,
   courts: PropTypes.arrayOf(PropTypes.object).isRequired,
   clayCourts: PropTypes.arrayOf(PropTypes.object).isRequired,
   carpetCourts: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -91,4 +99,4 @@ CourtsList.propTypes = {
   indoorCourts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default connect(mapStateToProps, null)(CourtsList);
+export default connect(mapStateToProps, null)(withRouter(CourtsList));
