@@ -22,7 +22,7 @@ const Court = ({ court }) => {
         </a>
         <Link
           to={`/book-court/${court.id}`}
-          className="px-3 py-2 border-radius bg-green btn"
+          className="px-3 py-2 border-radius bg-green btn border-0"
         >
           <small>Book Court</small>
         </Link>
