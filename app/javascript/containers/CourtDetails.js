@@ -29,7 +29,10 @@ const CourtDetails = ({ match, courts }) => {
           <span className="badge badge-secondary">{`$${court.cost}`}</span>
         </h4>
         <img src={court.image} alt="court" />
-        <div className="mt-2 mb-5 px-2">{court.location}</div>
+        <div className="mt-2 mb-1 px-2">{court.location}</div>
+        <small className="bold mb-2">
+          {court.court_type.toUpperCase().slice(0, -1)}
+        </small>
         <div className="mt-3">
           <a
             href={`tel:+${court.phone}`}

@@ -5,8 +5,8 @@ import { Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
-import NavBar from './NavBar';
-import MobileFooter from './MobileFooter';
+import NavBar from '../components/NavBar';
+import MobileFooter from '../components/MobileFooter';
 
 const mapStateToProps = state => ({
   user: state.user,
