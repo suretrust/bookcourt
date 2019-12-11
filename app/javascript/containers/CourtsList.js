@@ -11,42 +11,25 @@ import MobileFooter from '../components/MobileFooter';
 const mapStateToProps = state => ({
   user: state.user,
   courts: state.courts,
-  carpetCourts: state.carpetCourts,
-  clayCourts: state.clayCourts,
-  indoorCourts: state.indoorCourts,
-  grassCourts: state.grassCourts,
-  hardCourts: state.hardCourts,
 });
 
-const CourtsList = ({
-  user,
-  match,
-  courts,
-  clayCourts,
-  carpetCourts,
-  grassCourts,
-  hardCourts,
-  indoorCourts,
-}) => {
+const CourtsList = ({ user, match, courts }) => {
   const courtFilter = () => {
     switch (match.params.type) {
-      case 'all-courts':
-        return courts;
-
       case 'clay-courts':
-        return clayCourts;
+        return courts.filter(court => court.court_type === 'Clay Courts');
 
       case 'hard-courts':
-        return hardCourts;
+        return courts.filter(court => court.court_type === 'Hard Courts');
 
       case 'carpet-courts':
-        return carpetCourts;
+        return courts.filter(court => court.court_type === 'Carpet Courts');
 
       case 'grass-courts':
-        return grassCourts;
+        return courts.filter(court => court.court_type === 'Grass Courts');
 
       case 'indoor-courts':
-        return indoorCourts;
+        return courts.filter(court => court.court_type === 'Indoor Courts');
 
       default:
         return courts;
@@ -92,11 +75,6 @@ CourtsList.propTypes = {
     id: PropTypes.number.isRequired,
   }).isRequired,
   courts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  clayCourts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  carpetCourts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  grassCourts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  hardCourts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  indoorCourts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default connect(mapStateToProps, null)(withRouter(CourtsList));

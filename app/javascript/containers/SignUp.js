@@ -5,15 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { Form } from 'react-bootstrap';
 import Axios from 'axios';
-import {
-  setUser,
-  setCourts,
-  setCarpetCourts,
-  setClayCourts,
-  setHardCourts,
-  setGrassCourts,
-  setIndoorCourts,
-} from '../actions';
+import { setUser, setCourts } from '../actions';
 import { emailIsValid } from '../utilities';
 
 const csrfToken = document.querySelector('[name=csrf-token]').content;
@@ -22,11 +14,6 @@ Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
 const mapDispatchToProps = dispatch => ({
   setUser: (email, id) => dispatch(setUser(email, id)),
   setCourts: courts => dispatch(setCourts(courts)),
-  setCarpetCourts: carpetCourts => dispatch(setCarpetCourts(carpetCourts)),
-  setClayCourts: clayCourts => dispatch(setClayCourts(clayCourts)),
-  setHardCourts: hardCourts => dispatch(setHardCourts(hardCourts)),
-  setGrassCourts: grassCourts => dispatch(setGrassCourts(grassCourts)),
-  setIndoorCourts: indoorCourts => dispatch(setIndoorCourts(indoorCourts)),
 });
 
 class SignUp extends React.Component {
@@ -89,44 +76,11 @@ class SignUp extends React.Component {
   handleSubmit = async e => {
     e.preventDefault();
     const { email } = this.state;
-    const {
-      setUser,
-      setCourts,
-      setCarpetCourts,
-      setClayCourts,
-      setHardCourts,
-      setGrassCourts,
-      setIndoorCourts,
-    } = this.props;
+    const { setUser, setCourts } = this.props;
     const user = await this.getUserID(email.toLowerCase());
     const courts = await this.getCourts();
 
-    const carpetCourts = courts.filter(
-      court => court.court_type === 'Carpet Courts'
-    );
-
-    const clayCourts = courts.filter(
-      court => court.court_type === 'Clay Courts'
-    );
-
-    const hardCourts = courts.filter(
-      court => court.court_type === 'Hard Courts'
-    );
-
-    const grassCourts = courts.filter(
-      court => court.court_type === 'Grass Courts'
-    );
-
-    const indoorCourts = courts.filter(
-      court => court.court_type === 'Indoor Courts'
-    );
-
     setCourts(courts);
-    setCarpetCourts(carpetCourts);
-    setClayCourts(clayCourts);
-    setHardCourts(hardCourts);
-    setGrassCourts(grassCourts);
-    setIndoorCourts(indoorCourts);
     setUser(user);
 
     this.setState({
@@ -188,11 +142,6 @@ class SignUp extends React.Component {
 SignUp.propTypes = {
   setCourts: PropTypes.func.isRequired,
   setUser: PropTypes.func.isRequired,
-  setCarpetCourts: PropTypes.func.isRequired,
-  setClayCourts: PropTypes.func.isRequired,
-  setHardCourts: PropTypes.func.isRequired,
-  setGrassCourts: PropTypes.func.isRequired,
-  setIndoorCourts: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(withRouter(SignUp));
