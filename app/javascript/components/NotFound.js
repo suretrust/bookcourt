@@ -14,7 +14,7 @@ const NotFound = ({ history }) => {
   };
 
   return (
-    <div
+    <main
       className="NotFound text-center"
       style={{ backgroundColor: '#e2f0d3' }}
     >
@@ -35,7 +35,7 @@ const NotFound = ({ history }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

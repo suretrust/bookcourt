@@ -20,7 +20,7 @@ const styles = {
 
 const Main = () => {
   return (
-    <div className="Main" style={{ backgroundColor: '#e2f0d3' }}>
+    <section className="Main" style={{ backgroundColor: '#e2f0d3' }}>
       <Container style={styles.Container}>
         <Row className="pt-5" style={styles.Row}>
           <Col lg md={12}>
@@ -44,7 +44,7 @@ const Main = () => {
           </Col>
         </Row>
       </Container>
-    </div>
+    </section>
   );
 };
 

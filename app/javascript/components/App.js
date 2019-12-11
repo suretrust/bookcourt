@@ -14,8 +14,8 @@ import Home from './Home';
 import SignUp from '../containers/SignUp';
 import NotFound from './NotFound';
 import CourtDetails from '../containers/CourtDetails';
-import BookCourt from './BookCourt';
-import Bookings from './Bookings';
+import BookCourt from '../containers/BookCourt';
+import Bookings from '../containers/Bookings';
 import BookingConfirmed from './BookingConfirmed';
 
 function App() {

@@ -142,7 +142,7 @@ class SignUp extends React.Component {
     const { errMsg, email, redirectTo, disabled } = this.state;
 
     return (
-      <div className="SignUp text-center pt-5">
+      <main className="SignUp text-center pt-5">
         <div className="container p-5">
           <h4 className="py-5 bold">
             BOOK<span className="green">OURT</span>
@@ -180,7 +180,7 @@ class SignUp extends React.Component {
             </div>
           </Form>
         </div>
-      </div>
+      </main>
     );
   }
 }

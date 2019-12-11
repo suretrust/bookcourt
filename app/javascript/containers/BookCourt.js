@@ -167,7 +167,7 @@ class BookCourt extends React.Component {
     ];
 
     return (
-      <section style={{ backgroundColor: '#e2f0d3' }} className="BookCourt">
+      <main style={{ backgroundColor: '#e2f0d3' }} className="BookCourt">
         <NavBar />
         <div className="book-court p-5">
           {redirectTo ? <Redirect to="/booking-confirmed" /> : null}
@@ -264,7 +264,7 @@ class BookCourt extends React.Component {
           </Form>
         </div>
         <MobileFooter />
-      </section>
+      </main>
     );
   }
 }

@@ -51,7 +51,7 @@ const CourtTypes = () => {
   };
 
   return (
-    <section
+    <main
       style={{ backgroundColor: '#e2f0d3' }}
       className="CourtTypes text-center"
     >
@@ -158,7 +158,7 @@ const CourtTypes = () => {
         {courts[0] ? <SearchResult courts={courts} /> : ''}
       </div>
       <MobileFooter />
-    </section>
+    </main>
   );
 };
 

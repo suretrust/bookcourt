@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <div className="bg-white" style={{ maxWidth: '100%' }}>
+    <header className="bg-white" style={{ maxWidth: '100%' }}>
       <Navbar expand="lg" style={{ maxWidth: '991px', margin: '0 auto' }}>
         <Navbar.Brand>
           <Link to="/" className="bold decoration-on-hover">
@@ -29,7 +29,7 @@ const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    </div>
+    </header>
   );
 };
 

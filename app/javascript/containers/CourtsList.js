@@ -54,7 +54,7 @@ const CourtsList = ({
   };
 
   return (
-    <section style={{ backgroundColor: '#e2f0d3' }}>
+    <main style={{ backgroundColor: '#e2f0d3' }}>
       {!user.id ? <Redirect to="/sign-up" /> : null}
       <NavBar />
       <div className="text-center px-5 pb-5 CourtList">
@@ -78,7 +78,7 @@ const CourtsList = ({
         </Row>
       </div>
       <MobileFooter />
-    </section>
+    </main>
   );
 };
 

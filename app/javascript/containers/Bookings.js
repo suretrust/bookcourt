@@ -26,7 +26,7 @@ const Bookings = ({ user }) => {
   }, []);
 
   return (
-    <section
+    <main
       style={{ backgroundColor: '#e2f0d3' }}
       className="text-center Bookings"
     >
@@ -56,7 +56,7 @@ const Bookings = ({ user }) => {
         </Table>
       </div>
       <MobileFooter />
-    </section>
+    </main>
   );
 };
 

@@ -18,13 +18,13 @@ const CourtDetails = ({ match, courts }) => {
   const court = courts.filter(court => court.id === id)[0];
 
   return (
-    <section
+    <main
       style={{ backgroundColor: '#e2f0d3' }}
       className="text-center full-height"
     >
       <NavBar />
       <div className="CourtDetails pt-5">
-        <h4 className="green bold">
+        <h4 className="green bold mb-2">
           {`${court.name} `}
           <span className="badge badge-secondary">{`$${court.cost}`}</span>
         </h4>
@@ -49,7 +49,7 @@ const CourtDetails = ({ match, courts }) => {
         </div>
       </div>
       <MobileFooter />
-    </section>
+    </main>
   );
 };
 

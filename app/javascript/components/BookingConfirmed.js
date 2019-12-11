@@ -4,7 +4,7 @@ import MobileFooter from './MobileFooter';
 
 const BookingConfirmed = () => {
   return (
-    <section style={{ backgroundColor: '#e2f0d3' }} className="full-height">
+    <main style={{ backgroundColor: '#e2f0d3' }} className="full-height">
       <div className="d-flex flex-column text-center align-items-center p-5">
         <h2 className="green bold pt-5">Booking Confirmed!</h2>
         <div className="my-5">
@@ -17,7 +17,7 @@ const BookingConfirmed = () => {
         </div>
       </div>
       <MobileFooter />
-    </section>
+    </main>
   );
 };
 

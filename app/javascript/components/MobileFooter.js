@@ -21,7 +21,7 @@ class MobileFooter extends React.Component {
   render() {
     const { handleGoBack } = this;
     return (
-      <div className="d-block d-sm-none d-flex MobileFooter align-items-center">
+      <nav className="d-block d-sm-none d-flex MobileFooter align-items-center">
         <button type="button" to="/" className="link" onClick={handleGoBack}>
           <img src={Back} alt="back" />
         </button>
@@ -34,7 +34,7 @@ class MobileFooter extends React.Component {
         <Link to="/court-types/all-courts" className="link">
           <img src={Courts} alt="courts" />
         </Link>
-      </div>
+      </nav>
     );
   }
 }
