@@ -1,29 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import wideWorld from '../assets/images/wide-world.png';
-// import payment from '../assets/images/payment.png';
-// import tennis from '../assets/images/tennis.png';
+import { Row, Col } from 'react-bootstrap';
+import wideWorld from '../../assets/images/wide-world.png';
+import payment from '../../assets/images/payment.png';
+import tennis from '../../assets/images/tennis.png';
 
 const WhyUS = () => {
   return (
-    <div id="why-us">
-      <div>
-        <h2>Consistency</h2>
-        {/* <img src={tennis} alt="tennis" /> */}
-        <p> Never miss a tennis workout.</p>
+    <section id="why-us" className="WhyUs">
+      <h2 className="text-center py-5 bold green">Why Bookourt?</h2>
+      <Row className="text-center">
+        <Col lg md={12}>
+          <h5 className="bolder">Consistency</h5>
+          <img src={tennis} alt="tennis" />
+          <p> Never miss a tennis workout.</p>
+        </Col>
+        <Col lg md={12}>
+          <h5 className="bolder">No Extra Payment</h5>
+          <img src={payment} alt="payment" />
+          <p>You pay the exact fee charged by the tennis court.</p>
+        </Col>
+        <Col lg md={12}>
+          <h5 className="bolder">Wide Varieties</h5>
+          <img src={wideWorld} alt="Wide Varieties" />
+          <p>Get easy and unrestricted access to any court listed with us.</p>
+        </Col>
+      </Row>
+      <div className="text-center my-5">
+        <Link to="/sign-up" className="focus-button">
+          Get Started
+        </Link>
       </div>
-      <div>
-        <h2>No Extra Payment</h2>
-        {/* <img src={payment} alt="payment" /> */}
-        <p>You pay the exact fee charged by the tennis court.</p>
-      </div>
-      <div>
-        <h2>Wide Varieties</h2>
-        {/* <img src={wideWorld} alt="Wide Varieties" /> */}
-        <p>Get easy and unrestricted access to any court listed with us.</p>
-      </div>
-      <Link to="/sign-up">Get Started</Link>
-    </div>
+    </section>
   );
 };
 
