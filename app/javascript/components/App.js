@@ -1,13 +1,22 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-// import '../assets/styles/css/App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import store from '../store/store';
-import Login from './Login';
 import CourtTypes from './CourtTypes';
 import CourtsList from '../containers/CourtsList';
 import Home from './Home';
-import SignUp from './SignUp';
+import SignUp from '../containers/SignUp';
+import NotFound from './NotFound';
+import CourtDetails from '../containers/CourtDetails';
+import BookCourt from '../containers/BookCourt';
+import Bookings from '../containers/Bookings';
+import BookingConfirmed from './BookingConfirmed';
 
 function App() {
   return (
@@ -16,10 +25,15 @@ function App() {
         <Router>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/login" component={Login} />
             <Route path="/sign-up" component={SignUp} />
-            <Route path="/:court-type/:courts" component={CourtTypes} />
-            <Route path="/find-court" component={CourtsList} />
+            <Route path="/court-types" exact component={CourtTypes} />
+            <Route path="/court-types/:type" component={CourtsList} />
+            <Route path="/courts/:id" component={CourtDetails} />
+            <Route path="/book-court/:id" component={BookCourt} />
+            <Route path="/bookings" component={Bookings} />
+            <Route path="/booking-confirmed" component={BookingConfirmed} />
+            <Route path="/404" component={NotFound} />
+            <Redirect to="/404" />
           </Switch>
         </Router>
       </div>

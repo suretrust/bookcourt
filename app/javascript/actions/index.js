@@ -1,6 +1,11 @@
-const addUser = email => ({
-  type: 'ADD_USER',
-  email,
+const setUser = user => ({
+  type: 'SET_USER',
+  user,
 });
 
-export default addUser;
+const setCourts = courts => ({
+  type: 'SET_COURTS',
+  courts,
+});
+
+export { setUser, setCourts };
