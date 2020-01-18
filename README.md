@@ -29,12 +29,22 @@ Bookourt is a mobile first web app built with react and rails. The react front e
 
 ### 🏠 [Homepage](https://bookourt.herokuapp.com/)
 
-## Install
 
-```sh
-bundle install
-npm install
-```
+## Usage
+#### Clone the repository to your local machine
+`git clone https://github.com/suretrust/bookcourt.git`
+
+#### Change directory into the directory
+`cd bookcourt`
+
+#### Install dependencies
+`npm install`
+`bundle install`
+
+#### Run rails server
+`rails s`
+
+###### If it doesn't open automatically, open `http://localhost:3000` using your browser.
 
 ## Run tests
 
