@@ -11,7 +11,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^5.4.4",
     "airbnb": "0.0.2",
-    "axios": "^1.16.0",
+    "axios": "^1.18.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^5.0.0",
